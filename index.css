@@ -875,3 +875,476 @@ margin-bottom: 20px;
 .finger-section button:hover{
     background: #c1c1c2;
 }
+
+
+/* ===========================
+   Mobile (480px and below)
+=========================== */
+@media screen and (max-width:480px){
+
+    /* Header */
+    .header-section{
+        height: 65px;
+        padding: 0 15px;
+    }
+
+    /* Logo Container */
+    .icon-area{
+        gap: 8px;
+    }
+
+    /* Logo Image */
+    .icon-area img{
+        width: 30px;
+        height: 30px;
+    }
+
+    /* Logo Text */
+    .icon-area span{
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+     /* Hide menu */
+    .menu-area{
+        display: none;
+    }
+
+    /* Header buttons */
+    .sign-join{
+        gap: 8px;
+    }
+
+    .sign-area{
+        font-size: 13px;
+    }
+
+    .join-area{
+        padding: 8px 15px;
+        font-size: 13px;
+        border-radius: 6px;
+    }
+
+    /* Hero Section */
+    .content-section{
+        width: 100%;
+        height: 70vh;
+        background-position: center;
+        background-size: cover;
+        padding: 20px;
+    }
+
+    /* Hero Heading */
+    .content-section h2{
+        font-size: 30px;
+        line-height: 1.3;
+    }
+
+    /* Hero Paragraph */
+    .content-section p{
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    /* Search Box */
+    .search-bar{
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .search-bar input{
+        width: 100%;
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    /* Category Buttons */
+    .buttons{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .buttons button{
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+
+    /* Hero Heading */
+    .content-section h2{
+        font-size: 30px;
+        line-height: 1.3;
+        margin: 60px 20px 25px;
+    }
+
+    /* Search Bar */
+    .search-bar{
+        width: calc(100% - 40px);
+        margin: 0 20px 25px;
+    }
+
+    .search-bar input{
+        height: 45px;
+        padding: 0 60px 0 18px;
+        font-size: 15px;
+    }
+
+    .search-bar input::placeholder{
+        font-size: 13px;
+    }
+
+    .search-bar span{
+        width: 55px;
+        height: 45px;
+    }
+
+    /* Category Buttons Container */
+    .buttons{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 0 20px;
+    }
+
+    /* Buttons */
+    .content-section button{
+        margin: 0;
+        height: 42px;
+        padding: 0 15px;
+        font-size: 13px;
+    }
+
+    /* Remove desktop left margin */
+    .content-section button:first-of-type{
+        margin-left: 0;
+    }
+
+    /* Button widths */
+    .web,
+    .design,
+    .tiktok,
+    .video,
+    .book{
+        width: auto;
+    }
+
+     /* Trusted By */
+    .trustby{
+        margin: 30px 20px 0;
+        gap: 15px;
+        font-size: 14px;
+        justify-content: flex-start;
+    }
+
+    .trustby span:first-child{
+        width: 100%;
+        font-size: 15px;
+    }
+
+    .trustby span:not(:first-child){
+        font-size: 14px;
+    }
+
+    /* Grid Container */
+    .grid-container{
+        width: 95%;
+        gap: 10px;
+        padding-bottom: 10px;
+    }
+
+    /* Cards */
+    .grid-container > div{
+        min-width: 130px;
+        height: 150px;
+        padding: 15px;
+        border-radius: 15px;
+    }
+
+    /* Card Icons */
+    .grid-container img{
+        width: 38px;
+        height: 38px;
+        margin-bottom: 10px;
+    }
+
+    /* Card Text */
+    .grid-container p{
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    /* Popular Services Section */
+    .popular-services{
+        padding: 40px 0;
+    }
+
+    .service-area{
+        font-size: 24px;
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
+
+    /* Slider */
+    .cards{
+        gap: 15px;
+        padding: 15px;
+    }
+
+    /* Cards */
+    .card11,
+    .card22,
+    .card33,
+    .card44,
+    .card55,
+    .card66,
+    .card77,
+    .card88,
+    .card99{
+        width: 180px;
+        height: 250px;
+    }
+
+    /* Card Text */
+    .program1,
+    .design1,
+    .digital1,
+    .writing1,
+    .video1,
+    .ai1,
+    .music1,
+    .business1,
+    .consult1{
+        left: 15px;
+        bottom: 18px;
+        font-size: 13px;
+    }
+
+    /* Hide Next Button */
+    .nxt-btn{
+        display: none;
+    }
+
+    /* Make It Section */
+    .make-it{
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+        gap: 20px;
+    }
+
+    .make-it h3{
+        width: 100%;
+        font-size: 22px;
+    }
+
+    .join-now button{
+        width: 100%;
+        max-width: 220px;
+        padding: 14px;
+        font-size: 16px;
+    }
+
+    /* Features Section */
+    .temp{
+        flex-direction: column;
+        gap: 30px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .top,
+    .easy-use,
+    .work-done,
+    .pay-happy{
+        width: 100%;
+    }
+
+    .top img,
+    .easy-use img,
+    .work-done img,
+    .pay-happy img{
+        width: 50px;
+        height: 50px;
+        margin-bottom: 15px;
+    }
+
+    /* Two Boxes */
+    .two-boxes{
+        width: 95%;
+        gap: 15px;
+    }
+
+     /* ======================
+       Experts Box
+    ====================== */
+    .experts{
+        height: auto;
+        padding: 20px;
+    }
+
+    .experts h2{
+        font-size: 22px;
+    }
+
+    .experts p{
+        font-size: 24px;
+        line-height: 1.4;
+    }
+
+    .experts ul{
+        margin-left: 18px;
+    }
+
+    .experts li{
+        font-size: 14px;
+    }
+
+    .expert-btn{
+        width: 100%;
+        padding: 14px;
+        font-size: 15px;
+    }
+
+    .h-img{
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .expert-large{
+        position: static;
+        transform: none;
+        margin-top: 25px;
+        text-align: center;
+    }
+
+    .large-img{
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+        margin: auto;
+    }
+
+    /* ======================
+       AI Directors
+    ====================== */
+
+    .ai-directors{
+        height: auto;
+        padding: 20px;
+    }
+
+    .ai-directors h2{
+        font-size: 28px;
+    }
+
+    .ai-directors p{
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .ai-directors button{
+        width: 100%;
+        padding: 14px;
+    }
+
+    .ai-video{
+        position: static;
+        margin-top: 20px;
+    }
+
+    .ai-video video{
+        width: 100%;
+        height: auto;
+    }
+
+    /* ======================
+       Success Section
+    ====================== */
+
+    .looks-section{
+        width: 95%;
+        margin: 50px auto;
+    }
+
+    .looks-section h3{
+        font-size: 28px;
+    }
+
+    .looks-section p{
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .looks-section video{
+        border-radius: 12px;
+    }
+
+    /* ======================
+       Guide Section
+    ====================== */
+
+    .guide-section{
+        width: 95%;
+        gap: 20px;
+    }
+
+    .guide-section h3{
+        font-size: 28px;
+    }
+
+    .guide1,
+    .guide2,
+    .guide3{
+        flex: 100%;
+        min-width: 100%;
+    }
+
+    .guide1 img,
+    .guide2 img,
+    .guide3 img{
+        height: 220px;
+    }
+
+    .guide1 p,
+    .guide2 p,
+    .guide3 p{
+        font-size: 18px;
+        margin-top: 12px;
+    }
+
+    /* Guide Text */
+    .guide1 p,
+    .guide2 p,
+    .guide3 p{
+        font-size: 16px;
+        margin-top: 10px;
+        line-height: 1.4;
+    }
+
+    /* Finger Section */
+    .finger-section{
+        width: 95%;
+        margin: 50px auto;
+        padding: 30px 20px;
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    /* Heading */
+    .finger-section h2{
+        font-size: 24px;
+        max-width: 100%;
+        line-height: 1.4;
+    }
+
+    /* Button */
+    .finger-section button{
+        width: 100%;
+        max-width: 220px;
+        padding: 14px 20px;
+        font-size: 16px;
+        border-radius: 8px;
+    }
+
+}
