@@ -874,6 +874,146 @@ margin-bottom: 20px;
 
 
 /* ===========================
+   Business Section
+=========================== */
+
+.business-solutions{
+    width: 95%;
+    max-width: 1400px;
+    margin: 80px auto;
+    padding: 60px 20px;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 40px;
+
+    border-top: 1px solid #969aa1;
+}
+
+/* Each Column */
+.business-solutions > div{
+    display: flex;
+    flex-direction: column;
+}
+
+/* Heading */
+.business-solutions h3{
+    font-size: 18px;
+    font-weight: 500;
+    color: #222325;
+    margin-bottom: 20px;
+}
+
+/* Links */
+.business-solutions p{
+    font-size: 15px;
+    color: #3e3f43;
+    margin-bottom: 12px;
+    cursor: pointer;
+    line-height: 1.6;
+    transition: all .3s ease;
+}
+
+/* Hover Effect */
+.business-solutions p:hover{
+    color: #2ab3cf;
+    transform: translateX(6px);
+}
+
+
+/* =========================
+   Footer
+========================= */
+.footer-area{
+    width: 100%;
+    padding: 22px 6%;
+    margin-top: 60px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    border-top: 1px solid #e4e5e7;
+    background: #ffffff;
+}
+
+/* Left Side */
+.left-area{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.left-area h2{
+    font-size: 24px;
+    color: #222325;
+    font-weight: 300;
+}
+
+.left-area span{
+    font-size: 14px;
+    color: #494a50;
+}
+
+/* Right Side */
+.right-area{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+/* Social Icons */
+.right-area img{
+    width: 35px;
+    height:35px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    padding: 8px;
+}
+
+.right-area img:hover{
+    background: #f5f5f5;
+}
+
+/* Buttons */
+.eng-btn,
+.inr-btn{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 16px;
+    border: none;
+    background: transparent;
+    border-radius: 25px;
+
+    font-size: 15px;
+    font-weight: 600;
+    color: #555;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.eng-btn img,
+.inr-btn img{
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    background: transparent;
+}
+
+.eng-btn:hover,
+.inr-btn:hover{
+    background: #efeff0;
+    color: #000;
+}
+
+
+/* ===========================
    Mobile (480px and below)
 =========================== */
 @media screen and (max-width:480px){
