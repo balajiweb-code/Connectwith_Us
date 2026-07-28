@@ -120,10 +120,6 @@ body{
     transition:.3s;
 }
 
-.join-area:hover{
-    background:transparent;
-    color:#29a6c2;
-}
 
 /* ==========================
    HERO CONTENT
