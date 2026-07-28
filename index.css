@@ -1277,6 +1277,9 @@ margin-bottom: 20px;
 
     .looks-section video{
         border-radius: 12px;
+        width: 100%;
+        max-width: 500px;
+        height: 600px;
     }
 
     /* ======================
@@ -1356,7 +1359,9 @@ margin-bottom: 20px;
     }
 
     .business-solutions > div{
-        align-items: center;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .business-solutions h3{
@@ -1365,8 +1370,8 @@ margin-bottom: 20px;
     }
 
     .business-solutions p{
-        font-size: 14px;
-        margin-bottom: 10px;
+         margin: 0 0 12px;
+        text-align: left;
     }
 
     .business-solutions p:hover{
