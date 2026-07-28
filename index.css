@@ -1167,7 +1167,7 @@ margin-bottom: 20px;
      /* Trusted By */
     .trustby{
         margin: 30px 20px 0;
-        gap: 15px;
+        gap: 10px;
         font-size: 14px;
         justify-content: flex-start;
     }
