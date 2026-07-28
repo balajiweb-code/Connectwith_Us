@@ -1347,4 +1347,70 @@ margin-bottom: 20px;
         border-radius: 8px;
     }
 
+     /* Business Solutions */
+    .business-solutions{
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .business-solutions > div{
+        align-items: center;
+    }
+
+    .business-solutions h3{
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+
+    .business-solutions p{
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .business-solutions p:hover{
+        transform: none;
+    }
+
+    /* Footer */
+    .footer-area{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 25px 15px;
+        text-align: center;
+    }
+
+    .left-area{
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .left-area h2{
+        font-size: 22px;
+    }
+
+    .left-area span{
+        font-size: 13px;
+    }
+
+    .right-area{
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .right-area img{
+        width: 32px;
+        height: 32px;
+        padding: 6px;
+    }
+
+    .eng-btn,
+    .inr-btn{
+        font-size: 14px;
+        padding: 8px 14px;
+    }
+
 }
