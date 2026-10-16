@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConnectWith_Us</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <!--Main-container-->
+    <div class="big-container">
+        <!--Header section-->
+        <div class="header-section">
+            <div class="icon-area">
+                <img src="images/usimages.png/link.png" height="30">
+                <span>Connectwith_Us</span>
+            </div>
+            <div class="menu-area">
+                <ul>
+                    <li class="pro" data-tooltip="Unlock premium features">Pro</li>
+                    <li class="explore" data-tooltip="Discover popular services">Explore</li>
+                    <li class="en" data-tooltip="Change your language">EN</li>
+                    <li class="seller" data-tooltip="Start selling your services">Become a seller</li>
+                </ul>
+            </div>
+            <!-- Navbar buttons -->
+            <div class="sign-join">
+                <button class="sign-area" id="signInBtn">Sign in</button>
+                <button class="join-area" id="joinBtn">Join</button>
+            </div>
+
+            <!-- Login / Signup Modal -->
+            <div class="auth-overlay" id="authOverlay">
+                <div class="auth-card">
+
+                    <button class="close-auth" id="closeAuth">&times;</button>
+
+                    <div class="auth-header">
+                        <h2 id="authTitle">Welcome Back!</h2>
+                        <p id="authSubtitle">Sign in to continue to ConnectWith</p>
+                    </div>
+
+                    <form id="authForm">
+
+                        <div class="form-group" id="nameGroup">
+                            <label for="authName">Full Name</label>
+                            <input type="text" id="authName" placeholder="Enter your full name" autocomplete="name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="authEmail">Email Address</label>
+                            <input type="email" id="authEmail" placeholder="Enter your email" autocomplete="email"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="authPassword">Password</label>
+
+                            <div class="password-box">
+                                <input type="password" id="authPassword" placeholder="Enter your password"
+                                    autocomplete="current-password" minlength="8" required>
+
+                                <button type="button" id="togglePassword" class="toggle-password">
+                                    Show
+                                </button>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="auth-submit" id="authSubmit">
+                            Sign in
+                        </button>
+
+                        <p class="auth-message" id="authMessage" role="status"></p>
+                    </form>
+
+                    <p class="auth-switch">
+                        <span id="switchText">Don't have an account?</span>
+                        <button type="button" id="switchAuth">Join now</button>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <!--content seen by people-->
+        <div class="content-section">
+            <h2 class="our-heading">Our freelancers<br>will take it from here</h2>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for any service" id="input-section">
+                <span id="search-btn">
+                    <img src="images/usimages.png/search (1).png" height="40">
+                </span>
+            </div>
+            <div id="google-answer"></div>
+            <div class="connection-section">
+                <a href="development.html" class="web" target="_blank" rel="noopener noreferrer">Website Development
+                    →</a>
+                <a href="interior.html" class="design" target="_blank" rel="noopener noreferrer">Architecture & Interior
+                    Design →</a>
+                <a href="tiktok.html" class="tiktok" target="_blank" rel="noopener noreferrer">TikTok Shop →</a>
+                <a href="editing.html" class="video" target="_blank" rel="noopener noreferrer">Video Editing →</a>
+                <a href="book.html" class="book" target="_blank" rel="noopener noreferrer">Book Publishing →</a>
+            </div>
+            <div class="trustby">
+                <span>Trusted by:</span>
+                <span>Meta</span>
+                <span>Google</span>
+                <span>NETFLIX</span>
+                <span>P&G</span>
+                <span>PayPal</span>
+                <span>Payoneer</span>
+            </div>
+        </div>
+
+        <!--Grid container-->
+        <div class="grid-container">
+            <div class="card1">
+                <img src="images/usimages.png/software-development.png" height="30">
+                <p class="program">Programming <br>& Tech</p>
+            </div>
+            <div class="card2">
+                <img src="images/usimages.png/organization.png" height="30">
+                <p class="graphd">Graphics <br>& Design</p>
+            </div>
+            <div class="card3">
+                <img src="images/usimages.png/social-marketing.png" height="30">
+                <p class="digital">Digital<br> Marketing</p>
+            </div>
+            <div class="card4">
+                <img src="images/usimages.png/copy-writing.png" height="30">
+                <p class="writing">Writing <br>& Translation</p>
+            </div>
+            <div class="card5">
+                <img src="images/usimages.png/video.png" height="30">
+                <p class="vidanim">Video <br>& Animation</p>
+            </div>
+            <div class="card6">
+                <img src="images/usimages.png/cloud.png" height="30">
+                <p class="ai">AI Services</p>
+            </div>
+            <div class="card7">
+                <img src="images/usimages.png/multimedia.png" height="30">
+                <p class="music">Music <br>& Audio</p>
+            </div>
+            <div class="card8">
+                <img src="images/usimages.png/cooperation.png" height="30">
+                <p class="business">Business</p>
+            </div>
+            <div class="card9">
+                <img src="images/usimages.png/consultation.png" height="30">
+                <p class="consult">Consulting</p>
+            </div>
+
+        </div>
+
+        <!--Popular services-->
+        <div class="popular-services">
+            <h2 class="service-area">Popular Services</h2>
+            <div class="sliders" id="slider-container">
+                <button class="prev-btn" id="left-btn" aria-label="Scroll left"> &#10094;</button>
+                <div class="cards">
+                    <div class="card11">
+                        <img src="images/usimages.webp/growtika-yGQmjh2uOTg-unsplash.webp">
+                        <p class="program1">Programming <br>& Tech</p>
+                    </div>
+                    <div class="card22">
+                        <img src="images/usimages.webp/ben-kolde-bs2Ba7t69mM-unsplash.webp">
+                        <p class="design1">Graphics<br> & Design</p>
+                    </div>
+                    <div class="card33">
+                        <img src="images/usimages.webp/fotis-fotopoulos-6sAl6aQ4OWI-unsplash.webp">
+                        <p class="digital1">Digital <br>Marketing</p>
+                    </div>
+                    <div class="card44">
+                        <img src="images/usimages.webp/igor-omilaev-IsYT5rUuVcs-unsplash.webp">
+                        <p class="writing1">Writing <br>& Translation</p>
+                    </div>
+                    <div class="card55">
+                        <img src="images/usimages.webp/jakob-owens-l82NzBSYbj0-unsplash.webp">
+                        <p class="video1">Video <br>& Animation</p>
+                    </div>
+                    <div class="card66">
+                        <img src="images/usimages.webp/jaredd-craig-HH4WBGNyltc-unsplash.webp">
+                        <p class="ai1">AI Services</p>
+                    </div>
+                    <div class="card77">
+                        <img src="images/usimages.webp/jonathan-borba-UisC7KLAWjs-unsplash.webp">
+                        <p class="music1">Music <br>& Audio</p>
+                    </div>
+                    <div class="card88">
+                        <img src="images/usimages.webp/pexels-ivan-s-7621358.webp">
+                        <p class="business1">Business</p>
+                    </div>
+                    <div class="card99">
+                        <img src="images/usimages.webp/salah-darwish-TE40O_a3pWM-unsplash.webp">
+                        <p class="consult1">Consulting</p>
+                    </div>
+                </div>
+                <button class="nxt-btn" id="right-btn" aria-label="Scroll right">&#10095;</button>
+            </div>
+        </div>
+
+        <!-- Ask something about the content in the Google search bar -->
+        <section class="ask-meta-section">
+            <h2 class="ask-meta">
+                Ask Meta AI
+                <span class="meta-icon">
+                    <img src="images/usimages.png/meta.png" alt="Meta AI" width="55" height="40">
+                </span>
+            </h2>
+            <p class="ask-meta-subtitle">
+                Explore ideas | discover services | find answers
+            </p>
+
+
+            <div class="google-search-container">
+
+                <script async src="https://cse.google.com/cse.js?cx=45df417a659854ad8">
+                </script>
+                <div class="gcse-search"></div>
+
+            </div>
+
+
+        </section>
+
+        <!--Make it all happen with connectwith_us-->
+        <div class="make-it">
+            <h3>Make it all happen with Connecwith_Us</h3>
+            <div class="join-now">
+                <button>Join now</button>
+            </div>
+        </div>
+        <!--Top talent | Easy to use | work done | pay happy-->
+        <div class="temp">
+            <div class="top">
+                <img src="images/usimages.svg/image.svg">
+                <p>Access a pool of top talent <br>across 700 categories</p>
+            </div>
+            <div class="easy-use">
+                <img src="images/usimages.svg/image (1).svg">
+                <p>Enjoy a simple, easy-to-use<br> matching experience</p>
+            </div>
+            <div class="work-done">
+                <img src="images/usimages.svg/image (2).svg">
+                <p>Get quality work done quickly <br>and within budget</p>
+            </div>
+            <div class="pay-happy">
+                <img src="images/usimages.svg/happy.b67d619.svg">
+                <p>Only pay when you're happy</p>
+            </div>
+        </div>
+
+        <!--Two big containers-->
+        <div class="two-boxes">
+            <div class="experts">
+                <h2>Connectwith_Us Pro</h2>
+                <p>Let experts find the right<br> freelancer for you</p>
+                <ul>
+                    <li>Work with experts who will source, interview, and vet freelancers for you</li>
+                    <li>Get a report with clear recommendations</li>
+                    <li>Hire vetted freelance talent with confidence</li>
+                </ul>
+                <button class="expert-btn">Discover expert sourcing</button>
+                <div class="h-img">
+                    <span>
+                        <img src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/4011beb62973828e895fe8162424792d-1772630878104/money-back-guarantee-img.png"
+                            height="40" class="small-img">
+                    </span>
+                    <h5>100% money-back guarantee</h5>
+                </div>
+                <div class="expert-large">
+                    <img src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/ee86a5ada6f7ab1c626e48091d54ca39-1773098956162/pro-banner-section-freelancers.png"
+                        height="400" class="large-img">
+                </div>
+            </div>
+            <div class="ai-directors">
+                <h2>The AI Director era<br>has arrived</h2>
+                <p>From vision to final frame, work with the most renowned AI Video<br> Directors to create
+                    scroll-stopping content and campaigns that<br> drive real impact.</p>
+                <button class="ai-btn">Find your AI Director</button>
+                <div class="ai-video">
+                    <video
+                        src="https://fiverr-res.cloudinary.com/video/upload/t_fiverr_hd_nl/v1/video-attachments/generic_asset/asset/14957b0be6378e1fd212193f81962000-1774365803723/all%20directors%20for%20gif%20fixed"
+                        autoplay muted loop,, height="450"></video>
+                </div>
+            </div>
+        </div>
+        <!--Looks section-->
+        <div class="looks-section">
+            <h3>What success on Connectwith_Us looks like</h3>
+            <p>Vontélle Eyewear turns to Fiverr freelancers to bring their vision to life.</p>
+            <video autoplay muted loop playsinline>
+                <source src="videos/usvideos.mp4/8111182-hd_1920_1080_30fps.mp4">
+            </video>
+        </div>
+        <!--Guides section-->
+        <div class="guide-section">
+            <h3>Guides to help you grow</h3>
+            <div class="guide1">
+                <img
+                    src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_600,dpr_1.0/v1/attachments/generic_asset/asset/0c7c1b07050e6ea2a0901861b48b6264-1658846941284/side%20hustle.jpeg">
+                <p>Start a side business</p>
+            </div>
+            <div class="guide2">
+                <img
+                    src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_600,dpr_1.0/v1/attachments/generic_asset/asset/687d698a96f4eef875648319685ffeed-1687027332007/1685561103924-12profitableecommercebusinessideasyoucanstarttoday.jpg">
+                <p>Ecommerce business Ideas</p>
+            </div>
+            <div class="guide3">
+                <img
+                    src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_600,dpr_1.0/v1/attachments/generic_asset/asset/5907f56b0e099c84efe5f480840f43a2-1593446948907/home%20based%20online%20business-fiverr.jpg">
+                <p>Start an online business and work from home</p>
+            </div>
+        </div>
+        <!--Fingertips-->
+        <div class="finger-section">
+            <h2>Freelance services at your fingertips</h2>
+            <button>Join with Us</button>
+        </div>
+        <!--Business solutions and categories & clients-->
+        <div class="business-solutions">
+            <div class="category-area">
+                <h3>Categories</h3>
+                <a href="https://www.google.com/search?q=Graphics%20%26%20Design" target="_blank"
+                    rel="noopener noreferrer">
+                    <p>Graphics &amp; Design</p>
+                </a>
+                <a href="https://www.google.com/search?q=Digital%20Marketing" target="_blank" rel="noopener noreferrer">
+                    <p>Digital Marketing</p>
+                </a>
+                <a href="https://www.google.com/search?q=Writing%20%26%20Translation" target="_blank"
+                    rel="noopener noreferrer">
+                    <p>Writing &amp; Translation</p>
+                </a>
+                <a href="https://www.google.com/search?q=Video%20%26%20Animation" target="_blank"
+                    rel="noopener noreferrer">
+                    <p>Video &amp; Animation</p>
+                </a>
+                <a href="https://www.google.com/search?q=Music%20%26%20Audio" target="_blank" rel="noopener noreferrer">
+                    <p>Music &amp; Audio</p>
+                </a>
+                <a href="https://www.google.com/search?q=Programming%20%26%20Tech" target="_blank"
+                    rel="noopener noreferrer">
+                    <p>Programming &amp; Tech</p>
+                </a>
+                <a href="https://www.google.com/search?q=AI%20Services" target="_blank" rel="noopener noreferrer">
+                    <p>AI Services</p>
+                </a>
+                <a href="https://www.google.com/search?q=Consulting" target="_blank" rel="noopener noreferrer">
+                    <p>Consulting</p>
+                </a>
+                <a href="https://www.google.com/search?q=Data" target="_blank" rel="noopener noreferrer">
+                    <p>Data</p>
+                </a>
+                <a href="https://www.google.com/search?q=Business" target="_blank" rel="noopener noreferrer">
+                    <p>Business</p>
+                </a>
+                <a href="https://www.google.com/search?q=Personal%20Growth%20%26%20Hobbies" target="_blank"
+                    rel="noopener noreferrer">
+                    <p>Personal Growth &amp; Hobbies</p>
+                </a>
+                <a href="https://www.google.com/search?q=Photography" target="_blank" rel="noopener noreferrer">
+                    <p>Photography</p>
+                </a>
+                <a href="https://www.google.com/search?q=Finance" target="_blank" rel="noopener noreferrer">
+                    <p>Finance</p>
+                </a>
+                <a href="https://www.google.com/search?q=End-to-End%20Projects" target="_blank"
+                    rel="noopener noreferrer">
+                    <p>End-to-End Projects</p>
+                </a>
+                <a href="https://www.google.com/search?q=Service%20Catalog" target="_blank" rel="noopener noreferrer">
+                    <p>Service Catalog</p>
+                </a>
+            </div>
+            <div class="for-clients">
+                <h3>For Clients</h3>
+                <a href="https://www.google.com/search?q=How%20to%20Hire" target="_blank" rel="noopener noreferrer">
+                    <p>How to Hire</p>
+                </a>
+                <a href="https://www.google.com/search?q=Customer%20Success%20Stories" target="_blank"
+                    rel="noopener noreferrer">
+                    <p>Customer Success Stories</p>
+                </a>
+                <a href="https://www.google.com/search?q=Quality%20Guide" target="_blank" rel="noopener noreferrer">
+                    <p>Quality Guide</p>
+                </a>
+                <a href="https://www.google.com/search?q=Fiverr%20Guides" target="_blank" rel="noopener noreferrer">
+                    <p>Fiverr Guides</p>
+                </a>
+                <a href="https://www.google.com/search?q=Fiverr%20Answers" target="_blank" rel="noopener noreferrer">
+                    <p>Fiverr Answers</p>
+                </a>
+            </div>
+            <div class="for-freelancers">
+                <h3>For Freelancers</h3>
+                <a href="https://www.google.com/search?q=Become%20a%20Fiverr%20Freelancer" target="_blank"
+                    rel="noopener noreferrer">
+                    <p>Become a Fiverr Freelancer</p>
+                </a>
+                <a href="https://www.google.com/search?q=Become%20an%20Agency" target="_blank"
+                    rel="noopener noreferrer">
+                    <p>Become an Agency</p>
+                </a>
+                <a href="https://www.google.com/search?q=Community%20Hub" target="_blank" rel="noopener noreferrer">
+                    <p>Community Hub</p>
+                </a>
+                <a href="https://www.google.com/search?q=Forum" target="_blank" rel="noopener noreferrer">
+                    <p>Forum</p>
+                </a>
+                <a href="https://www.google.com/search?q=Events" target="_blank" rel="noopener noreferrer">
+                    <p>Events</p>
+                </a>
+            </div>
+            <div class="business-area">
+                <h3>Business Solutions</h3>
+                <a href="https://www.google.com/search?q=Connectwith_Us%20Pro" target="_blank"
+                    rel="noopener noreferrer">
+                    <p>Connectwith_Us Pro</p>
+                </a>
+                <a href="https://www.google.com/search?q=Project%20Management%20Service" target="_blank"
+                    rel="noopener noreferrer">
+                    <p>Project Management Service</p>
+                </a>
+                <a href="https://www.google.com/search?q=Expert%20Sourcing%20Service" target="_blank"
+                    rel="noopener noreferrer">
+                    <p>Expert Sourcing Service</p>
+                </a>
+                <a href="https://www.google.com/search?q=AutoDS%20-%20Dropshipping%20Tool" target="_blank"
+                    rel="noopener noreferrer">
+                    <p>AutoDS - Dropshipping Tool</p>
+                </a>
+                <a href="https://www.google.com/search?q=Digis%20-%20Software%20Development" target="_blank"
+                    rel="noopener noreferrer">
+                    <p>Digis - Software Development</p>
+                </a>
+                <a href="https://www.google.com/search?q=AI%20store%20builder" target="_blank"
+                    rel="noopener noreferrer">
+                    <p>AI store builder</p>
+                </a>
+                <a href="https://www.google.com/search?q=Fiverr%20Logo%20Maker" target="_blank"
+                    rel="noopener noreferrer">
+                    <p>Fiverr Logo Maker</p>
+                </a>
+                <a href="https://www.google.com/search?q=Contact%20Sales" target="_blank" rel="noopener noreferrer">
+                    <p>Contact Sales</p>
+                </a>
+            </div>
+            <div class="company-area">
+                <h3>Company</h3>
+                <a href="https://www.google.com/search?q=About%20Connectwith_Us" target="_blank"
+                    rel="noopener noreferrer">
+                    <p>About Connectwith_Us</p>
+                </a>
+                <a href="https://www.google.com/search?q=Help%20Center" target="_blank" rel="noopener noreferrer">
+                    <p>Help Center</p>
+                </a>
+                <a href="https://www.google.com/search?q=Trust%20&%20Safety" target="_blank" rel="noopener noreferrer">
+                    <p>Trust & Safety</p>
+                </a>
+                <a href="https://www.google.com/search?q=Social%20Impact" target="_blank" rel="noopener noreferrer">
+                    <p>Social Impact</p>
+                </a>
+                <a href="https://www.google.com/search?q=Careers" target="_blank" rel="noopener noreferrer">
+                    <p>Careers</p>
+                </a>
+                <a href="https://www.google.com/search?q=Terms%20of%20Service" target="_blank"
+                    rel="noopener noreferrer">
+                    <p>Terms of Service</p>
+                </a>
+                <a href="https://www.google.com/search?q=Privacy%20Policy" target="_blank" rel="noopener noreferrer">
+                    <p>Privacy Policy</p>
+                </a>
+                <a href="https://www.google.com/search?q=Do%20not%20sell%20or%20share%20my%20personal%20information"
+                    target="_blank" rel="noopener noreferrer">
+                    <p>Do not sell or share my personal <br>information</p>
+                </a>
+                <a href="https://www.google.com/search?q=Partnerships" target="_blank" rel="noopener noreferrer">
+                    <p>Partnerships</p>
+                </a>
+                <a href="https://www.google.com/search?q=Creator%20Network" target="_blank" rel="noopener noreferrer">
+                    <p>Creator Network</p>
+                </a>
+                <a href="https://www.google.com/search?q=Affiliates" target="_blank" rel="noopener noreferrer">
+                    <p>Affiliates</p>
+                </a>
+                <a href="https://www.google.com/search?q=Invite%20a%20Friend" target="_blank" rel="noopener noreferrer">
+                    <p>Invite a Friend</p>
+                </a>
+                <a href="https://www.google.com/search?q=Press%20&%20News" target="_blank" rel="noopener noreferrer">
+                    <p>Press & News</p>
+                </a>
+                <a href="https://www.google.com/search?q=Investor%20Relations" target="_blank"
+                    rel="noopener noreferrer">
+                    <p>Investor Relations</p>
+                </a>
+            </div>
+        </div>
+        <!--Footer Section-->
+        <div class="footer-area">
+            <div class="left-area">
+                <h2>Connectwith_Us</h2>
+                <span>© connectwith_us International Ltd. 2026</span>
+            </div>
+            <div class="right-area">
+                <img src="images/usimages.png/tik-tok.png" height="25">
+                <img src="images/usimages.png/instagram (2).png" height="25">
+                <img src="images/usimages.png/linkedin.png" height="25">
+                <img src="images/usimages.png/facebook.png" height="25">
+                <img src="images/usimages.png/pinterest-logo.png" height="25">
+                <img src="images/usimages.png/twitter.png" height="25">
+                <button class="eng-btn"><img
+                        src="images/usimages.svg/language_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                        height="20">English</button>
+                <button class="inr-btn"><img
+                        src="images/usimages.svg/currency_rupee_circle_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                        height="20">INR</button>
+
+            </div>
+        </div>
+
+        <script src="javascript.js"></script>
+
+    </div>
+</body>
+
+</html>
