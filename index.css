@@ -132,19 +132,19 @@ body{
 
 /* Individual hover colors */
 .menu-area .pro:hover {
-    color: #8b5cf6;
+    color: #2ab3cf;
 }
 
 .menu-area .explore:hover {
-    color: #16a34a;
+    color: #2ab3cf;
 }
 
 .menu-area .en:hover {
-    color: #2563eb;
+    color: #2ab3cf;
 }
 
 .menu-area .seller:hover {
-    color: #e11d48;
+    color: #2ab3cf;
 }
 
 /* Navbar buttons */
@@ -170,22 +170,17 @@ body{
 }
 
 .sign-area:hover {
-    border-color: #16a34a;
-    color: #16a34a;
-    transform: translateY(-2px);
+    border-color: #2ab3cf;
+    color: #2ab3cf;
 }
 
 .join-area {
-    background: linear-gradient(135deg, #16a34a, #059669);
+    background: linear-gradient(135deg, #2ab3cf, #2ab3cf);
     color: white;
     border: 1px solid transparent;
-    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.2);
+    box-shadow: 0 4px 12px rgba(42, 179, 207, 0.2);
 }
 
-.join-area:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 7px 18px rgba(22, 163, 74, 0.3);
-}
 
 /* Background overlay */
 .auth-overlay {
@@ -284,9 +279,9 @@ body{
 }
 
 .form-group input:focus {
-    border-color: #3baccb;
+    border-color: #2ab3cf;
     background: #fff;
-    box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.1);
+    box-shadow: 0 0 0 4px rgba(42, 179, 207, 0.1);
 }
 
 .password-box {
@@ -304,7 +299,7 @@ body{
     right: 12px;
     border: none;
     background: transparent;
-    color: #15803d;
+    color: #2ab3cf;
     font-size: 12px;
     font-weight: 600;
     cursor: pointer;
@@ -317,7 +312,7 @@ body{
     padding: 14px;
     border: none;
     border-radius: 10px;
-    background: linear-gradient(135deg, #16a34a, #059669);
+    background: linear-gradient(135deg, #2ab3cf, #2ab3cf);
     color: #fff;
     font-size: 15px;
     font-weight: 700;
@@ -326,8 +321,7 @@ body{
 }
 
 .auth-submit:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(22, 163, 74, 0.25);
+    box-shadow: 0 8px 20px rgba(42, 179, 207, 0.25);
 }
 
 .auth-message {
@@ -346,7 +340,7 @@ body{
 .auth-switch button {
     border: none;
     background: transparent;
-    color: #15803d;
+    color: #2ab3cf;
     font-weight: 700;
     cursor: pointer;
 }
@@ -477,15 +471,10 @@ body{
     background: rgba(255,255,255,0.9);
 }
 
-/* ==========================
-   CATEGORY BUTTONS
-========================== */
-
-
-
-
-
-
+#input-section {
+    font-size: 14px;
+    font-weight:500;
+}
 
 /* Button widths */
 
@@ -707,6 +696,41 @@ body{
 }
 
 
+.grid-container > div {
+  --x: 50%;
+  --y: 50%;
+  position: relative;
+  overflow: hidden;          /* keeps the glow inside the rounded corners */
+  border: 1px solid #e4e4e0;
+  border-radius: 16px;
+  background: #fafaf9;
+  cursor: pointer;
+}
+
+/* glow layer */
+.grid-container > div::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle 140px at var(--x) var(--y),
+    #7dd1e2,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.grid-container > div:hover::before {
+  opacity: 1;
+}
+
+/* keep the icon and text above the glow */
+.grid-container > div > * {
+  position: relative;
+}
+
 /* ==============================
    ICONS
 ================================ */
@@ -772,176 +796,110 @@ body{
     color: #222;
 }
 
-/* Popular Services */
-.popular-services{
-    width:100%;
-    padding:60px 0;
-    background:#f7f7f7;
+
+
+/* ---------- section ---------- */
+.popular-services {
+  max-width: 100%;
+  margin: 0 auto;
+  padding:40px 20px;
 }
 
-.service-area{
-    font-size:30px;
-    font-weight: 200;
-    margin-bottom:30px;
-    margin-left:60px;
+.service-area {
+  font-weight: 400;
+  color: black;
+  margin-bottom:25px;
 }
 
-/* Slider */
-.sliders{
-    position:relative;
-    width:100%;
+/* ---------- slider wrapper ---------- */
+.sliders {
+  position: relative;          /* arrows are positioned against this */
 }
 
-.cards{
-    display:flex;
-    gap:20px;
-    overflow-x:auto;
-    padding:20px;
-    scroll-behavior:smooth;
+.cards {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;       /* Firefox */
+  padding: 4px 2px;
+}
+.cards::-webkit-scrollbar { display: none; }   /* Chrome, Safari */
+
+/* ---------- each card ---------- */
+.cards > div {
+  position: relative;
+  flex: 0 0 240px;             /* fixed card width, no shrinking */
+  height: 320px;
+  border-radius: 8px;
+  overflow: hidden;            /* clips the zoomed image */
+  cursor: pointer;
+  scroll-snap-align: start;
 }
 
-.cards::-webkit-scrollbar{
-    display:none;
+.cards > div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;           /* fills the card without stretching */
+  display: block;
+  transition: transform 0.5s ease;
 }
 
-/* All Cards */
-.card11,
-.card22,
-.card33,
-.card44,
-.card55,
-.card66,
-.card77,
-.card88,
-.card99{
-    width:260px;
-    height:340px;
-    border-radius:18px;
-    overflow:hidden;
-    position:relative;
-    cursor:pointer;
-    flex-shrink:0;
-    transition:0.4s ease;
-    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+/* dark gradient at the top so white text is readable */
+.cards > div::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.65), transparent 55%);
+  pointer-events: none;
 }
 
-/* Images */
-.card11 img,
-.card22 img,
-.card33 img,
-.card44 img,
-.card55 img,
-.card66 img,
-.card77 img,
-.card88 img,
-.card99 img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-    transition:transform .5s ease;
-    order: 2;
+/* label text on top of the image */
+.cards > div p {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  margin: 0;
+  z-index: 1;                  /* above the gradient */
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 1.3;
+  transition: transform 0.3s ease;
 }
 
-/* Hover Effect */
-.card11:hover,
-.card22:hover,
-.card33:hover,
-.card44:hover,
-.card55:hover,
-.card66:hover,
-.card77:hover,
-.card88:hover,
-.card99:hover{
-    box-shadow:0 18px 35px rgba(0,0,0,.3);
+/* hover effect */
+.cards > div:hover img { transform: scale(1.08); }
+.cards > div:hover p   { transform: translateY(-3px); }
+
+/* ---------- arrow buttons ---------- */
+.prev-btn,
+.nxt-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: #fff;
+  color: #404145;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.prev-btn { left: -18px; }
+.nxt-btn  { right: -18px; }
+
+.prev-btn:hover,
+.nxt-btn:hover {
+  background: #64cce9;
+  color: #fff;
 }
 
-/* Text */
-.program1,
-.design1,
-.digital1,
-.writing1,
-.video1,
-.ai1,
-.music1,
-.business1,
-.consult1{
-    position:absolute;
-    bottom:25px;
-    left:20px;
-    color:white;
-    font-size:15px;
-    font-weight:500;
-    line-height:1.2;
-    text-shadow:2px 2px 10px rgba(0,0,0,.7);
-}
-
-
-
-.card p{
-    font-size:10px;
-    font-weight:500;
-    line-height:1.0;
-    color:white;
-     order: 1;
-}
-
-/* Right Arrow Button */
-.nxt-btn{
-    position:absolute;
-    top:50%;
-    right:25px;
-    transform:translateY(-50%);
-
-    width:60px;
-    height:60px;
-
-    border:none;
-    border-radius:50%;
-    background:#fff;
-
-    font-size:32px;
-    color:#555;
-    cursor:pointer;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    box-shadow:0 6px 20px rgba(0,0,0,.15);
-
-    transition:.3s;
-}
-
-.nxt-btn:hover{
-    background:#f5f5f5;
-    transform:translateY(-50%) scale(1.08);
-}
-
-
-.prev-btn {
-    /* Match the existing right arrow */
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    cursor: pointer;
-        width:60px;
-    height:60px;
-
-    border:none;
-    border-radius:50%;
-    background:#fff;
-
-    font-size:32px;
-    color:#555;
-}
-
-/* Keep the right arrow on the opposite side */
-#slider-container {
-    position: relative;
-}
 
 .nxt-btn {
     position: absolute;
@@ -974,17 +932,19 @@ body{
     padding: 16px 18px;
     border: none;
     border-radius: 12px;
+    box-shadow:none;
     background: rgb(10, 9, 9);
     color: #f0f5f6;
     font-size: 18px;
     font-weight: 600;
     cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.3s ease;
 }
 
 .join-now button:hover{
     background-color:rgb(79, 74, 74);
 }
+
 
 .temp{
     display: flex;
@@ -1262,6 +1222,7 @@ margin-bottom: 20px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 /* Hover Effect */
@@ -1412,7 +1373,1540 @@ margin-bottom: 20px;
     color: #000;
 }
 
+/* Media queries to the home page of my webiste */
+/* ============================= */
+/* Responsive Design - Tablets */
+/* ============================= */
+
+@media screen and (max-width: 1024px) {
+
+    .header-section {
+        padding: 0 30px;
+    }
+
+    .menu-area ul {
+        gap: 18px;
+    }
+
+    .sign-join {
+        gap: 8px;
+    }
+
+    .sign-join button {
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+
+    .icon-area img {
+        width: 34px;
+        height: 34px;
+    }
+
+    .icon-area span {
+        font-size: 17px;
+    }
+}
+
+
+/* ============================= */
+/* Responsive Design - Mobile */
+/* ============================= */
+
+@media screen and (max-width: 768px) {
+
+    .header-section {
+        height: 70px;
+        padding: 0 20px;
+        gap: 15px;
+    }
+
+    .icon-area {
+        gap: 7px;
+        flex-shrink: 0;
+    }
+
+    .icon-area img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .icon-area span {
+        font-size: 16px;
+    }
+
+    .menu-area ul {
+        gap: 12px;
+    }
+
+    .menu-area li {
+        font-size: 13px;
+    }
+
+    .sign-join {
+        gap: 7px;
+    }
+
+    .sign-join button {
+        padding: 9px 12px;
+        font-size: 12px;
+        border-radius: 7px;
+    }
+
+    .auth-card {
+        max-width: 400px;
+        padding: 30px 25px;
+        border-radius: 18px;
+    }
+
+    .auth-overlay {
+        padding: 15px;
+    }
+}
+
+
+/* ============================= */
+/* Responsive Design - Small Phones */
+/* ============================= */
+
+@media screen and (max-width: 600px) {
+
+    .header-section {
+        height: auto;
+        min-height: 70px;
+        padding: 14px 16px;
+        flex-wrap: wrap;
+        row-gap: 14px;
+    }
+
+    .icon-area {
+        margin-right: auto;
+    }
+
+    .menu-area {
+        order: 3;
+        width: 100%;
+    }
+
+    .menu-area ul {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+
+    .menu-area li {
+        font-size: 13px;
+    }
+
+    .menu-area li::after {
+        font-size: 11px;
+        padding: 7px 10px;
+    }
+
+    .sign-join {
+        gap: 8px;
+    }
+
+    .sign-join button {
+        padding: 9px 12px;
+        font-size: 12px;
+    }
+
+    .auth-card {
+        width: 100%;
+        max-width: 360px;
+        max-height: 85vh;
+        padding: 25px 20px;
+        border-radius: 16px;
+    }
+}
+
+
+/* ============================= */
+/* Responsive Design - Extra Small Phones */
+/* ============================= */
+
+@media screen and (max-width: 380px) {
+
+    .header-section {
+        padding: 12px;
+        column-gap: 8px;
+    }
+
+    .icon-area {
+        gap: 5px;
+    }
+
+    .icon-area img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .icon-area span {
+        font-size: 14px;
+    }
+
+    .sign-join {
+        gap: 5px;
+    }
+
+    .sign-join button {
+        padding: 8px 9px;
+        font-size: 11px;
+    }
+
+    .menu-area ul {
+        gap: 13px;
+    }
+
+    .menu-area li {
+        font-size: 12px;
+    }
+
+    .auth-card {
+        padding: 22px 16px;
+    }
+}
+
+.content-section {
+    padding: 0 35px;
+}
+
+.content-section h2 {
+    font-size: 44px;
+    margin: 100px 0 40px 45px;
+}
+
+.connection-section {
+    margin-left: 35px;
+}
+
+.search-bar {
+    width: 85%;
+    margin-left: 45px;
+}
+
+.trustby {
+    margin-left: 45px;
+    gap: 22px;
+}
+
+.grid-container {
+    padding: 0 45px;
+    gap: 22px;
+}
+
+.service-area {
+    margin-left: 35px;
+}
+
+.make-it {
+    padding: 40px 45px;
+}
+
+.temp {
+    padding: 10px 45px;
+    gap: 25px;
+}
+
+
+/* =========================================
+2. TABLETS
+========================================= */
+
+@media screen and (max-width: 992px) {
+
+/* Hero section */
+
+.content-section {
+    height: auto;
+    min-height: 85vh;
+    padding: 35px 30px 45px;
+    background-position: center;
+}
+
+.content-section h2 {
+    font-size: 38px;
+    line-height: 1.2;
+    margin: 70px 0 35px 15px;
+}
+
+.connection-section {
+    margin-left: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.connection-section a {
+    margin: 0;
+    font-size: 14px;
+    padding: 9px 12px;
+}
+
+/* Search bar */
+
+.search-bar {
+    width: 100%;
+    max-width: 750px;
+    margin: 25px auto;
+}
+
+.search-bar input {
+    height: 48px;
+    font-size: 16px;
+    padding: 0 70px 0 20px;
+}
+
+.search-bar span {
+    width: 58px;
+    height: 48px;
+}
+
+.trustby {
+    margin: 35px 0 0;
+    gap: 18px;
+    font-size: 15px;
+}
+
+.trustby span:not(:first-child) {
+    font-size: 15px;
+}
+
+/* Meta AI search */
+
+.google-search-container {
+    width: 95%;
+}
+
+.ask-meta-subtitle {
+    padding: 0 20px;
+    font-size: 15px;
+}
+
+/* Service grid */
+
+.grid-container {
+    padding: 0 25px;
+    gap: 18px;
+}
+
+.card1,
+.card2,
+.card3,
+.card4,
+.card5,
+.card6,
+.card7,
+.card8,
+.card9 {
+    flex: 1 1 145px;
+    min-width: 140px;
+    padding: 16px;
+}
+
+/* Popular services */
+
+.popular-services {
+    padding: 45px 0;
+}
+
+.service-area {
+    margin-left: 25px;
+    font-size: 27px;
+}
+
+.card11,
+.card22,
+.card33,
+.card44,
+.card55,
+.card66,
+.card77,
+.card88,
+.card99 {
+    width: 225px;
+    height: 300px;
+}
+
+.nxt-btn,
+.prev-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 26px;
+}
+
+/* Join section */
+
+.make-it {
+    padding: 35px 30px;
+    gap: 25px;
+}
+
+.make-it h3 {
+    width: 65%;
+    font-size: 22px;
+}
+
+.join-now button {
+    font-size: 15px;
+    padding: 13px 16px;
+}
+
+/* Feature section */
+
+.temp {
+    padding: 20px 30px;
+    gap: 25px;
+}
+
+}
+
+/* =========================================
+3. MOBILE PHONES
+========================================= */
+
+@media screen and (max-width: 600px) {
+
+/* Hero section */
+
+.content-section {
+    min-height: auto;
+    height: auto;
+    padding: 25px 18px 35px;
+    background-position: center;
+}
+
+.content-section h2 {
+    font-size: clamp(27px, 7vw, 34px);
+    line-height: 1.2;
+    margin: 45px 0 28px;
+    overflow-wrap: break-word;
+}
+
+.connection-section {
+    margin-left: 0;
+    gap: 8px;
+}
+
+.connection-section a {
+    padding: 8px 10px;
+    font-size: 12px;
+    border-radius: 8px;
+}
+
+/* Reset desktop button widths */
+
+.web,
+.design,
+.tiktok,
+.video,
+.book {
+    width: auto;
+    max-width: 100%;
+}
+
+/* Search bar */
+
+.search-bar {
+    width: 100%;
+    margin: 25px 0;
+}
+
+.search-bar input {
+    height: 46px;
+    padding: 0 55px 0 16px;
+    font-size: 14px;
+}
+
+.search-bar input::placeholder {
+    font-size: 12px;
+}
+
+.search-bar span {
+    width: 45px;
+    height: 46px;
+}
+
+#input-section {
+    font-size: 13px;
+}
+
+/* Trusted brands */
+
+.trustby {
+    margin: 25px 0 0;
+    gap: 12px 18px;
+    font-size: 13px;
+}
+
+.trustby span:not(:first-child) {
+    font-size: 13px;
+}
+
+/* Meta AI section */
+
+.ask-meta {
+    gap: 8px;
+    font-size: 27px;
+    flex-wrap: wrap;
+}
+
+.meta-icon {
+    padding: 5px;
+    border-radius: 12px;
+}
+
+.meta-icon img {
+    width: 38px;
+    height: 38px;
+}
+
+.ask-meta-subtitle {
+    padding: 0 18px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.google-search-container {
+    width: 100%;
+    margin: 15px auto;
+}
+
+.google-search-container .gsc-control-cse {
+    padding: 5px !important;
+}
+
+.google-search-container .gsc-input-box {
+    min-height: 42px !important;
+}
+
+.google-search-container .gsc-search-button-v2 {
+    min-width: 40px !important;
+    height: 40px !important;
+}
+
+.google-search-container .gsc-webResult.gsc-result {
+    padding: 14px !important;
+}
+
+.google-search-container .gs-title,
+.google-search-container .gs-title b {
+    font-size: 15px !important;
+}
+
+.google-search-container .gs-snippet {
+    font-size: 13px !important;
+    line-height: 1.6 !important;
+}
+
+/* Service grid */
+
+.grid-container {
+    padding: 0 15px;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.card1,
+.card2,
+.card3,
+.card4,
+.card5,
+.card6,
+.card7,
+.card8,
+.card9 {
+    flex: 1 1 calc(50% - 12px);
+    min-width: 0;
+    min-height: 115px;
+    padding: 13px 8px;
+    border-radius: 10px;
+}
+
+.grid-container img {
+    width: 28px;
+    height: 28px;
+    margin-bottom: 10px;
+}
+
+.grid-container p {
+    font-size: 12px;
+}
+
+/* Popular services */
+
+.popular-services {
+    padding: 35px 0;
+}
+
+.service-area {
+    margin: 0 18px 20px;
+    font-size: 24px;
+    line-height: 1.3;
+}
+
+.cards {
+    gap: 14px;
+    padding: 12px 18px;
+}
+
+.card11,
+.card22,
+.card33,
+.card44,
+.card55,
+.card66,
+.card77,
+.card88,
+.card99 {
+    width: 190px;
+    height: 255px;
+    border-radius: 14px;
+}
+
+.program1,
+.design1,
+.digital1,
+.writing1,
+.video1,
+.ai1,
+.music1,
+.business1,
+.consult1 {
+    bottom: 18px;
+    left: 14px;
+    right: 10px;
+    font-size: 13px;
+}
+
+.nxt-btn,
+.prev-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 22px;
+}
+
+.nxt-btn {
+    right: 5px;
+}
+
+.prev-btn {
+    left: 5px;
+}
+
+/* Join now section */
+
+.make-it {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px 20px;
+    gap: 20px;
+    margin: 5px auto;
+}
+
+.make-it h3 {
+    width: 100%;
+    font-size: 21px;
+    line-height: 1.4;
+}
+
+.join-now button {
+    padding: 12px 17px;
+    font-size: 15px;
+}
+
+/* Feature section */
+
+.temp {
+    justify-content: flex-start;
+    padding: 20px;
+    gap: 25px;
+}
+
+.temp > * {
+    flex: 1 1 100%;
+    min-width: 0;
+}
+
+.top img,
+.easy-use img,
+.work-done img,
+.pay-happy img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 12px;
+}
+
+/* Authentication form */
+
+.close-auth {
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    font-size: 23px;
+}
+
+.auth-header {
+    margin-bottom: 20px;
+}
+
+.auth-header h2 {
+    font-size: 23px;
+}
+
+.auth-header p {
+    font-size: 13px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input {
+    padding: 12px;
+    font-size: 14px;
+}
+
+.auth-submit {
+    padding: 13px;
+    font-size: 14px;
+}
+
+.auth-switch {
+    margin-top: 18px;
+    font-size: 12px;
+}
+
+}
+
+/* =========================================
+4. EXTRA SMALL MOBILE PHONES
+========================================= */
+
+@media screen and (max-width: 380px) {
+
+.content-section {
+    padding: 20px 12px 30px;
+}
+
+.content-section h2 {
+    font-size: 26px;
+    margin-top: 35px;
+}
+
+.connection-section a {
+    font-size: 11px;
+    padding: 7px 8px;
+}
+
+.trustby {
+    gap: 10px;
+    font-size: 12px;
+}
+
+.grid-container {
+    padding: 0 10px;
+    gap: 8px;
+}
+
+.card1,
+.card2,
+.card3,
+.card4,
+.card5,
+.card6,
+.card7,
+.card8,
+.card9 {
+    flex-basis: calc(50% - 8px);
+    padding: 10px 5px;
+    min-height: 105px;
+}
+
+.grid-container p {
+    font-size: 11px;
+}
+
+.card11,
+.card22,
+.card33,
+.card44,
+.card55,
+.card66,
+.card77,
+.card88,
+.card99 {
+    width: 165px;
+    height: 225px;
+}
+
+.service-area {
+    font-size: 21px;
+}
+
+.make-it {
+    padding: 25px 15px;
+}
+
+.make-it h3 {
+    font-size: 19px;
+}
+
+}
+
+/* =========================================
+5. ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+html {
+    scroll-behavior: auto;
+}
+
+*,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+}
+
+}
+
+/* =========================================
+   RESPONSIVE MEDIA QUERIES
+   TABLETS, MOBILE & SMALL PHONES
+========================================= */
+
+
+/* =========================================
+   1. LAPTOPS
+========================================= */
+
+@media screen and (max-width: 1200px) {
+
+    .two-boxes {
+        width: 100%;
+        padding: 0 40px;
+    }
+
+    .experts,
+    .ai-directors {
+        height: 450px;
+    }
+
+    .experts p {
+        font-size: 30px;
+    }
+
+    .expert-large {
+        right: -20px;
+        transform: translate(-20px, -20px) scale(0.85);
+        transform-origin: top right;
+    }
+
+    .ai-directors h2 {
+        font-size: 38px;
+    }
+
+    .ai-video {
+        right: -40px;
+        transform: scale(0.85);
+        transform-origin: top right;
+    }
+
+    .looks-section h3 {
+        font-size: 34px;
+    }
+
+    .guide1,
+    .guide2,
+    .guide3 {
+        min-width: 250px;
+    }
+
+    .guide1 img,
+    .guide2 img,
+    .guide3 img {
+        height: 260px;
+    }
+
+    .business-solutions {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 30px;
+        padding: 45px 15px;
+    }
+
+}
+
+
+/* =========================================
+   2. TABLETS
+========================================= */
+
+@media screen and (max-width: 992px) {
+
+    /* Expert and AI boxes */
+
+    .two-boxes {
+        width: 100%;
+        padding: 0 25px;
+        margin: 35px auto;
+        gap: 20px;
+    }
+
+    .experts,
+    .ai-directors {
+        height: auto;
+        min-height: 400px;
+        padding: 25px;
+        margin: 0;
+    }
+
+    .experts h2 {
+        font-size: 25px;
+    }
+
+    .experts p {
+        max-width: 65%;
+        font-size: 27px;
+        line-height: 1.4;
+    }
+
+    .experts ul {
+        max-width: 60%;
+    }
+
+    .expert-large {
+        right: -55px;
+        top: 90px;
+        transform: scale(0.65);
+        transform-origin: top right;
+    }
+
+    .h-img {
+        flex-wrap: wrap;
+    }
+
+    .expert-btn {
+        padding: 14px 22px;
+    }
+
+    /* AI directors */
+
+    .ai-directors h2 {
+        max-width: 65%;
+        font-size: 34px;
+    }
+
+    .ai-directors p {
+        max-width: 60%;
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .ai-video {
+        right: -70px;
+        top: 100px;
+        transform: scale(0.65);
+        transform-origin: top right;
+    }
+
+    /* Success video */
+
+    .looks-section {
+        width: 92%;
+        margin: 60px auto;
+    }
+
+    .looks-section h3 {
+        font-size: 31px;
+    }
+
+    .looks-section p {
+        font-size: 16px;
+    }
+
+    .looks-section video {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Guide cards */
+
+    .guide-section {
+        width: 92%;
+        gap: 20px;
+    }
+
+    .guide-section h3 {
+        font-size: 31px;
+        margin-bottom: 15px;
+    }
+
+    .guide1,
+    .guide2,
+    .guide3 {
+        flex: 1 1 calc(50% - 20px);
+        min-width: 0;
+    }
+
+    .guide1 img,
+    .guide2 img,
+    .guide3 img {
+        height: 230px;
+    }
+
+    .guide1 p,
+    .guide2 p,
+    .guide3 p {
+        font-size: 17px;
+    }
+
+    /* Finger section */
+
+    .finger-section {
+        width: 92%;
+        padding: 45px 30px;
+        margin: 60px auto;
+    }
+
+    .finger-section h2 {
+        font-size: 26px;
+        max-width: 100%;
+    }
+
+    .finger-section button {
+        padding: 14px 25px;
+        font-size: 16px;
+    }
+
+    /* Business solutions */
+
+    .business-solutions {
+        width: 92%;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 30px 22px;
+        padding: 40px 10px;
+        margin: 60px auto;
+    }
+
+    .business-solutions h3 {
+        font-size: 17px;
+    }
+
+    .business-solutions p {
+        font-size: 14px;
+    }
+
+    /* Footer */
+
+    .footer-area {
+        gap: 25px;
+    }
+
+    .left-area h2 {
+        font-size: 22px;
+    }
+
+    .right-area {
+        gap: 8px;
+    }
+
+}
+
+
+/* =========================================
+   3. MOBILE PHONES
+========================================= */
+
+@media screen and (max-width: 600px) {
+
+    /* Main boxes */
+
+    .two-boxes {
+        width: 100%;
+        padding: 0 15px;
+        margin: 30px auto;
+        gap: 18px;
+    }
+
+    .experts,
+    .ai-directors {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        min-height: 0;
+        padding: 22px 18px;
+        border-radius: 15px;
+        margin: 0;
+    }
+
+    .experts h2 {
+        font-size: 21px;
+        margin-bottom: 15px;
+    }
+
+    .experts p {
+        max-width: 100%;
+        font-size: 23px;
+        line-height: 1.4;
+        margin-bottom: 18px;
+    }
+
+    .experts ul {
+        margin-left: 18px;
+        font-size: 14px;
+        max-width: 100%;
+    }
+
+    .experts li {
+        margin-bottom: 10px;
+    }
+
+    .expert-btn {
+        margin-top: 15px;
+        padding: 12px 18px;
+        font-size: 13px;
+    }
+
+    .h-img {
+        gap: 8px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+    }
+
+    .h-img img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Expert image */
+
+    .expert-large {
+        position: relative;
+        top: auto;
+        right: auto;
+        transform: none;
+        margin: 20px auto 0;
+        max-width: 100%;
+    }
+
+    .large-img {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    /* AI directors */
+
+    .ai-directors h2 {
+        max-width: 100%;
+        font-size: 28px;
+        line-height: 1.3;
+        margin-bottom: 15px;
+    }
+
+    .ai-directors p {
+        max-width: 100%;
+        font-size: 14px;
+        line-height: 1.7;
+        margin: 18px 0;
+    }
+
+    .ai-directors button {
+        padding: 13px 20px;
+        font-size: 13px;
+    }
+
+    .ai-video {
+        position: relative;
+        top: auto;
+        right: auto;
+        transform: none;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .ai-video video {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    /* Success section */
+
+    .looks-section {
+        width: 92%;
+        margin: 45px auto;
+    }
+
+    .looks-section h3 {
+        font-size: 27px;
+        line-height: 1.35;
+    }
+
+    .looks-section p {
+        font-size: 14px;
+        line-height: 1.7;
+        margin-bottom: 25px;
+    }
+
+    .looks-section video {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+    }
+
+    /* Guide section */
+
+    .guide-section {
+        width: 92%;
+        margin: 45px auto;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .guide-section h3 {
+        width: 100%;
+        font-size: 27px;
+        line-height: 1.35;
+        margin-bottom: 5px;
+    }
+
+    .guide1,
+    .guide2,
+    .guide3 {
+        flex: 1 1 auto;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .guide1 img,
+    .guide2 img,
+    .guide3 img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .guide1 p,
+    .guide2 p,
+    .guide3 p {
+        margin-top: 12px;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    /* Finger section */
+
+    .finger-section {
+        width: 92%;
+        margin: 45px auto;
+        padding: 30px 20px;
+        border-radius: 15px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+    }
+
+    .finger-section h2 {
+        width: 100%;
+        max-width: 100%;
+        font-size: 23px;
+        line-height: 1.5;
+    }
+
+    .finger-section button {
+        width: 100%;
+        padding: 14px 20px;
+        font-size: 15px;
+    }
+
+    /* Business solutions */
+
+    .business-solutions {
+        width: 92%;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 30px 18px;
+        padding: 30px 0;
+        margin: 45px auto;
+    }
+
+    .business-solutions > div {
+        min-width: 0;
+    }
+
+    .business-solutions h3 {
+        font-size: 15px;
+        line-height: 1.4;
+        margin-bottom: 14px;
+    }
+
+    .business-solutions p {
+        font-size: 13px;
+        line-height: 1.6;
+        margin-bottom: 10px;
+        overflow-wrap: anywhere;
+    }
+
+    /* Footer */
+
+    .footer-area {
+        width: 100%;
+        padding: 25px 18px;
+        margin-top: 35px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+    }
+
+    .left-area {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .left-area h2 {
+        font-size: 22px;
+    }
+
+    .left-area span {
+        font-size: 12px;
+    }
+
+    .right-area {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .right-area img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .eng-btn,
+    .inr-btn {
+        padding: 9px 12px;
+        font-size: 13px;
+    }
+
+}
+
+
+/* =========================================
+   4. EXTRA SMALL PHONES
+========================================= */
+
+@media screen and (max-width: 380px) {
+
+    .two-boxes {
+        padding: 0 10px;
+    }
+
+    .experts,
+    .ai-directors {
+        padding: 18px 14px;
+    }
+
+    .experts p {
+        font-size: 21px;
+    }
+
+    .ai-directors h2 {
+        font-size: 25px;
+    }
+
+    .looks-section h3,
+    .guide-section h3 {
+        font-size: 24px;
+    }
+
+    .guide1 p,
+    .guide2 p,
+    .guide3 p {
+        font-size: 15px;
+    }
+
+    .finger-section {
+        padding: 25px 16px;
+    }
+
+    .finger-section h2 {
+        font-size: 21px;
+    }
+
+    .business-solutions {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .business-solutions h3 {
+        font-size: 16px;
+    }
+
+    .business-solutions p {
+        font-size: 14px;
+    }
+
+    .left-area {
+        gap: 8px;
+    }
+
+    .left-area h2 {
+        font-size: 20px;
+    }
+
+    .right-area {
+        gap: 6px;
+    }
+
+}
+
+
+/* =========================================
+   5. REDUCE MOTION WHEN REQUESTED
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .business-solutions p,
+    .right-area img,
+    .eng-btn,
+    .inr-btn {
+        transition: none;
+    }
+
+}
+
  /*   WEB DEVELOPMENT AREA  IT IS THE FIRST PAGE OF MY WEBSITE INCLUDING THE BEST PART MY WEB    */
+
+
+
+/* Header */
+
+.header-section-dev{
+    width:100%;
+    height:80px;
+    background:#fff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 60px;
+    box-shadow:none;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+/* Logo */
+.icon-area-dev{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    cursor:pointer;
+}
+
+.icon-area-dev img{
+    width:38px;
+    height:38px;
+}
+
+.icon-area-dev span{
+    font-size:18px;
+    font-weight:500;
+    color:#0d0d0d;
+}
+/* Menu Area */
+
+.menu-area-dev{
+    transform:translateY(12px);
+}
+
+.menu-area-dev ul {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+}
+
+.menu-area-dev li {
+    position: relative;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* Individual hover colors */
+.menu-area-dev .pro-dev:hover {
+    color: #2ab3cf;
+}
+
+.menu-area-dev .explore-dev:hover {
+    color: #2ab3cf;
+}
+
+.menu-area-dev .en-dev:hover {
+    color: #2ab3cf;
+}
+
+.menu-area-dev .seller-dev:hover {
+    color: #2ab3cf;
+}
+
+.input-bar-dev input{
+    border:2px solid black;
+    padding:12px;
+    border-radius:45px;
+    width:380px;
+}
+
+.search-area-dev{
+    transform:translateX(-40px);
+}
+
+/* Navbar buttons */
+.sign-join-dev {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sign-join-dev button {
+    padding: 11px 22px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sign-area-dev {
+    background: transparent;
+    color: #222;
+    border: 1px solid #d8d8d8;
+}
+
+.sign-area-dev:hover {
+    border-color: #2ab3cf;
+    color: #2ab3cf;
+}
+
+.join-area-dev {
+    background: linear-gradient(135deg, #2ab3cf, #2ab3cf);
+    color: white;
+    border: 1px solid transparent;
+    box-shadow: 0 4px 12px rgba(42, 179, 207, 0.2);
+}
 
 
 .input-bar{
@@ -1492,7 +2986,7 @@ align-items: center;
 }
 
 .category-item:hover .category-btn {
-    color: #6c4cff;
+    color: #2ab3cf;
 }
 
 .category-item:hover .category-btn span {
@@ -1543,8 +3037,8 @@ align-items: center;
 }
 
 .category-tooltip a:hover {
-    background: #f1edff;
-    color: #6c4cff;
+    background: white;
+    color: #2ab3cf;
     padding-left: 17px;
 }
 
@@ -1587,43 +3081,37 @@ align-items: center;
 }
 
 .left2{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 10px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    padding:0px 100px;
+    margin-bottom:-5px;
+    margin-top:10px;
 }
 
-.left2 a{
+.connection-with-works a{
     text-decoration:none;
-    color: black;
-    font-size: 17px;
-    font-weight: 200;
+    color:black;
 }
-
-.left2 p{
-    margin-left: 90px;
-    padding:10px;
-}
-
-/* Clickable buttons in the web development */
 
 /* Web development category buttons */
 .web-buttons {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
     flex-wrap: wrap;
     align-items: center;
-    gap: 14px;
+    gap: 10px;
     padding: 20px 0;
+    margin-left:95px;
 }
 
 /* Individual category */
 .web-buttons > div {
     display:flex;
     align-items: center;
-    gap: 9px;
+    gap: 6px;
     padding: 10px 16px;
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
+    background: transparent;
     border-radius: 12px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -1651,7 +3139,6 @@ align-items: center;
 
 /* Hover effect */
 .web-buttons > div:hover {
-    background: #f5f3ff;
     border-color: #61c7de;
 }
 
@@ -1663,7 +3150,8 @@ align-items: center;
     flex-wrap:wrap;
     justify-content:space-between;
     align-items:center;
-    padding:90px 100px;
+    padding:50px 100px;
+    margin-top:-20px;
 }
 
 .pro-btns{
@@ -1689,6 +3177,10 @@ align-items: center;
 
 .premium-pro input{
     font-size: 20px;
+}
+
+.pro-p-tag{
+    transform:translateY(8px);
 }
 
 .result-section{
@@ -2004,6 +3496,53 @@ align-items: center;
     width: 100%;
 }
 
+/*  Add tooltip the tag*/
+
+.explore1 a.tip {
+  position: relative;
+  display: inline-block;
+}
+
+.explore1 a.tip::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: black;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 13px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+/* Arrow pointing up at the link */
+.explore1 a.tip::before {
+  content: "";
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -100%);   /* sits just above the box */
+  border: 6px solid transparent;
+  border-bottom-color: #333;           /* the visible arrow side */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.explore1 a.tip:hover::after,
+.explore1 a.tip:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
+
 /* Buttons */
 .explore1 a,
 .explore2 a,
@@ -2102,12 +3641,1114 @@ align-items: center;
     font-weight: 450;
 }
 
+.guide-img1 p,
+.guide-img2 p,
+.guide-img3 p{
+    margin-top:8px;
+    color:black;
+}
 .guide-img1 img,
 .guide-img2 img,
 .guide-img3 img{
 height: 280px;
 width: 350px;
 border-radius: 3px;
+}
+/* Add media queries to the web development section to get mobile responsiveness */
+/* =========================================
+   RESPONSIVE MEDIA QUERIES
+   SEARCH BAR, CATEGORY NAVIGATION & INTRO
+========================================= */
+
+
+/* =========================================
+   1. LAPTOPS
+========================================= */
+
+@media screen and (max-width: 1200px) {
+
+    .input-bar input {
+        width: 350px;
+    }
+
+    .tooltip-area {
+        gap: 20px;
+        padding: 10px 15px;
+    }
+
+    .category-btn {
+        padding: 10px 7px;
+        font-size: 13px;
+    }
+
+    .left1 {
+        left: 50px;
+    }
+
+    .web-heading {
+        margin-left: 50px;
+        font-size: 28px;
+    }
+
+}
+
+
+/* =========================================
+   2. TABLETS
+========================================= */
+
+@media screen and (max-width: 992px) {
+
+    /* Search input */
+
+    .input-bar {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .input-bar input {
+        width: 100%;
+        max-width: 400px;
+        height: 46px;
+        padding: 12px 45px 12px 18px;
+        font-size: 14px;
+    }
+
+    .input-bar span {
+        right: 42px;
+        top: 2px;
+        padding: 12px;
+        flex-shrink: 0;
+    }
+
+    /* Category navigation */
+
+    .tooltip-area {
+        justify-content: flex-start;
+        gap: 10px;
+        padding: 10px 15px;
+    }
+
+    .category-item {
+        flex-shrink: 0;
+    }
+
+    .category-btn {
+        padding: 10px 8px;
+        font-size: 13px;
+    }
+
+    .category-tooltip {
+        min-width: 200px;
+    }
+
+    /* Web development intro */
+
+    .web-intro {
+        margin-top: 35px;
+    }
+
+    .left1 {
+        position: relative;
+        left: auto;
+        top: auto;
+        gap: 10px;
+        padding: 0 25px;
+    }
+
+    .left1 a {
+        font-size: 13px;
+    }
+
+    .web-heading {
+        margin-left: 25px;
+        padding-top: 20px;
+        font-size: 27px;
+    }
+
+}
+
+
+/* =========================================
+   3. MOBILE PHONES
+========================================= */
+
+@media screen and (max-width: 600px) {
+
+    /* Search bar */
+
+    .input-bar {
+        width: 100%;
+        position: relative;
+    }
+
+    .input-bar input {
+        width: 100%;
+        max-width: 100%;
+        height: 44px;
+        padding: 10px 48px 10px 15px;
+        border: 1px solid #333;
+        border-radius: 25px;
+        font-size: 13px;
+        box-sizing: border-box;
+    }
+
+    .input-bar span {
+        position: absolute;
+        right: 3px;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Category navigation */
+
+    .tooltip-area {
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 5px;
+        padding: 8px 12px;
+        overflow-x: auto;
+        overflow-y: visible;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .tooltip-area::-webkit-scrollbar {
+        display: none;
+    }
+
+    .trending,
+    .graphics,
+    .tech,
+    .digital,
+    .video,
+    .writing,
+    .music,
+    .business,
+    .finance,
+    .ai {
+        flex-shrink: 0;
+        font-size: 13px;
+    }
+
+    .category-item {
+        flex-shrink: 0;
+    }
+
+    .category-btn {
+        padding: 10px 8px;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    .category-btn span {
+        font-size: 10px;
+    }
+
+    /* Dropdown tooltip */
+
+    .category-tooltip {
+        min-width: 180px;
+        max-width: calc(100vw - 30px);
+        padding: 8px;
+        border-radius: 10px;
+    }
+
+    .category-tooltip a {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .category-tooltip a:hover {
+        padding-left: 13px;
+    }
+
+    /* Web development intro */
+
+    .web-intro {
+        margin-top: 25px;
+    }
+
+    .left1 {
+        position: relative;
+        left: auto;
+        top: auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 12px;
+        padding: 0 15px;
+    }
+
+    .left1 img {
+        max-width: 25px;
+        height: auto;
+    }
+
+    .left1 a {
+        font-size: 12px;
+    }
+
+    .web-heading {
+        margin-left: 15px;
+        margin-right: 15px;
+        padding-top: 18px;
+        font-size: 24px;
+        line-height: 1.35;
+    }
+
+}
+
+
+/* =========================================
+   4. EXTRA SMALL PHONES
+========================================= */
+
+@media screen and (max-width: 380px) {
+
+    .input-bar input {
+        height: 42px;
+        font-size: 12px;
+        padding-left: 12px;
+    }
+
+    .input-bar span {
+        padding: 8px;
+    }
+
+    .tooltip-area {
+        gap: 2px;
+        padding: 8px;
+    }
+
+    .category-btn {
+        padding: 9px 6px;
+        font-size: 11px;
+    }
+
+    .category-tooltip {
+        min-width: 160px;
+        max-width: calc(100vw - 20px);
+    }
+
+    .web-heading {
+        font-size: 21px;
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+
+    .left1 {
+        padding: 0 12px;
+        gap: 8px;
+    }
+
+    .left1 a {
+        font-size: 11px;
+    }
+
+}
+
+/* =========================================
+   RESPONSIVE DESIGN FOR MOBILE
+   ConnectWith - Web Development Page
+========================================= */
+
+
+/* =========================================
+   1. LAPTOPS AND TABLETS
+========================================= */
+
+@media screen and (max-width: 1024px) {
+
+    /* Left information */
+
+    .left2 {
+        gap: 8px;
+    }
+
+    .left2 p {
+        margin-left: 20px;
+    }
+
+    .left2 a {
+        font-size: 15px;
+    }
+
+    /* Web development buttons */
+
+    .web-buttons {
+        gap: 10px;
+        padding: 15px 20px;
+    }
+
+    .web-buttons > div {
+        padding: 9px 12px;
+    }
+
+    /* Pro section */
+
+    .pro-section {
+        padding: 55px 35px;
+        gap: 25px;
+    }
+
+    .result-section {
+        padding: 0 35px;
+        gap: 20px;
+    }
+
+    /* Service grid */
+
+    .grid-section {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        padding: 0 30px;
+        gap: 18px;
+    }
+
+    .box {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .box video,
+    .box img {
+        height: 200px;
+    }
+
+    .web-content {
+        padding: 14px 12px 10px;
+        gap: 8px;
+    }
+
+    .profile {
+        gap: 7px;
+        min-width: 0;
+    }
+
+    .profile span {
+        font-size: 13px;
+    }
+
+    .level-area {
+        font-size: 11px;
+        padding: 5px 8px;
+    }
+
+    .box a {
+        padding: 0 12px;
+        font-size: 14px;
+    }
+
+    .rating {
+        padding: 12px;
+        font-size: 13px;
+    }
+
+    .price {
+        padding: 0 12px 15px;
+    }
+
+    /* Tips */
+
+    .tips {
+        padding: 45px 35px;
+    }
+
+    .top-section {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding: 0 35px;
+        gap: 15px;
+    }
+
+    .tier1,
+    .tier2,
+    .tier3,
+    .tier4,
+    .tier5,
+    .tier6,
+    .tier7 {
+        min-width: 0;
+        height: 160px;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    /* Explore and hire sections */
+
+    .explore-more,
+    .hire-freelancers {
+        padding: 0 35px;
+    }
+
+    .explore1 a,
+    .explore2 a,
+    .explore3 a,
+    .hire1 a,
+    .hire2 a,
+    .hire3 a,
+    .hire4 a {
+        font-size: 13px;
+        padding: 9px 13px;
+    }
+
+    /* Guide images */
+
+    .guider-imgs {
+        gap: 18px;
+        margin-top: 0;
+    }
+
+    .guide-img1,
+    .guide-img2,
+    .guide-img3 {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .guide-img1 img,
+    .guide-img2 img,
+    .guide-img3 img {
+        width: 100%;
+        height: 230px;
+        object-fit: cover;
+    }
+
+}
+
+
+/* =========================================
+   2. TABLETS AND SMALLER SCREENS
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+    /* Left information */
+
+    .left2 {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .left2 p {
+        margin-left: 0;
+        padding: 5px;
+    }
+
+    .left2 a {
+        font-size: 14px;
+    }
+
+    /* Category buttons */
+
+    .web-buttons {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 12px 15px;
+        gap: 10px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .web-buttons::-webkit-scrollbar {
+        display: none;
+    }
+
+    .web-buttons > div {
+        flex-shrink: 0;
+        padding: 10px 12px;
+    }
+
+    .web-buttons button {
+        font-size: 13px;
+    }
+
+    .web-buttons img {
+        width: 22px;
+        height: 22px;
+    }
+
+    /* Pro section */
+
+    .pro-section {
+        padding: 35px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+    }
+
+    .pro-btns {
+        gap: 10px;
+    }
+
+    .pro-btns button {
+        padding: 9px 12px;
+        font-size: 13px;
+    }
+
+    .premium-pro {
+        gap: 8px;
+    }
+
+    .premium-pro input {
+        max-width: 100%;
+        font-size: 16px;
+    }
+
+    /* Sort and results */
+
+    .result-section {
+        padding: 0 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .sort-area {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .sort-area select {
+        max-width: 100%;
+        font-size: 13px;
+    }
+
+    /* Service grid */
+
+    .grid-section {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding: 0 18px;
+        gap: 20px 14px;
+        overflow: visible;
+    }
+
+    .box {
+        width: 100%;
+        min-width: 0;
+        border: 1px solid #eeeeee;
+        border-radius: 12px;
+    }
+
+    .box video,
+    .box img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+    }
+
+    .wishlist {
+        top: 10px;
+        right: 10px;
+        width: 36px;
+        height: 36px;
+        font-size: 22px;
+    }
+
+    .web-content {
+        padding: 12px 10px;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+
+    .profile img {
+        width: 29px;
+        height: 29px;
+    }
+
+    .profile span {
+        font-size: 12px;
+        overflow-wrap: anywhere;
+    }
+
+    .level-area {
+        font-size: 10px;
+        padding: 4px 7px;
+    }
+
+    .box a {
+        padding: 0 10px;
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .rating {
+        padding: 12px 10px 8px;
+        font-size: 12px;
+    }
+
+    .price {
+        padding: 0 10px 14px;
+        font-size: 13px;
+    }
+
+    /* Tips */
+
+    .tips {
+        padding: 35px 20px;
+    }
+
+    .tier1,
+    .tier2,
+    .tier3,
+    .tier4,
+    .tier5,
+    .tier6,
+    .tier7 {
+        height: 155px;
+        padding: 14px;
+    }
+
+    .tier-content1,
+    .tier-content2,
+    .tier-content3,
+    .tier-content4,
+    .tier-content5,
+    .tier-content6,
+    .tier-content7 {
+        left: 14px;
+        right: 14px;
+        bottom: 12px;
+        gap: 8px;
+    }
+
+    .tier-content1 a,
+    .tier-content2 a,
+    .tier-content3 a,
+    .tier-content4 a,
+    .tier-content5 a,
+    .tier-content6 a,
+    .tier-content7 a {
+        font-size: 12px;
+    }
+
+    .top-section {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+        gap: 15px;
+    }
+
+    /* Explore and hire */
+
+    .explorer,
+    .hire {
+        font-size: 26px;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+
+    .explore-more,
+    .hire-freelancers {
+        padding: 0 20px;
+        gap: 15px;
+    }
+
+    .explore1,
+    .explore2,
+    .explore3,
+    .hire1,
+    .hire2,
+    .hire3,
+    .hire4 {
+        gap: 8px;
+    }
+
+    .explore1 a,
+    .explore2 a,
+    .explore3 a,
+    .hire1 a,
+    .hire2 a,
+    .hire3 a,
+    .hire4 a {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+
+    /* Guide images */
+
+    .guide-section {
+        gap: 15px;
+    }
+
+    .guide-area {
+        font-size: 22px;
+    }
+
+    .guider-imgs {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px 12px;
+        margin-top: 15px;
+    }
+
+    .guide-img1,
+    .guide-img2,
+    .guide-img3 {
+        width: 100%;
+    }
+
+    .guide-img1 img,
+    .guide-img2 img,
+    .guide-img3 img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+    }
+
+}
+
+
+/* =========================================
+   3. MOBILE PHONES
+========================================= */
+
+@media screen and (max-width: 480px) {
+
+    /* Left information */
+
+    .left2 {
+        gap: 5px;
+    }
+
+    .left2 p {
+        padding: 4px 0;
+        font-size: 12px;
+    }
+
+    .left2 a {
+        font-size: 12px;
+    }
+
+    /* Category buttons */
+
+    .web-buttons {
+        padding: 10px;
+        gap: 8px;
+    }
+
+    .web-buttons > div {
+        padding: 9px 10px;
+        gap: 7px;
+        border-radius: 9px;
+    }
+
+    .web-buttons img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .web-buttons button {
+        font-size: 12px;
+    }
+
+    /* Pro section */
+
+    .pro-section {
+        padding: 25px 15px;
+        gap: 18px;
+    }
+
+    .pro-btns {
+        gap: 8px;
+    }
+
+    .pro-btns button {
+        padding: 9px 10px;
+        font-size: 12px;
+        border-radius: 8px;
+    }
+
+    .premium-pro {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .premium-pro input {
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
+
+    /* Results and sorting */
+
+    .result-section {
+        padding: 0 15px;
+        gap: 12px;
+    }
+
+    .sort-area {
+        gap: 5px;
+    }
+
+    .sort-area select {
+        padding: 8px 4px;
+        font-size: 12px;
+    }
+
+    /* Service cards */
+
+    .grid-section {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding: 0 10px;
+        gap: 15px 9px;
+    }
+
+    .box {
+        border-radius: 10px;
+    }
+
+    .box video,
+    .box img {
+        aspect-ratio: 1 / 1;
+        height: auto;
+    }
+
+    .wishlist {
+        top: 7px;
+        right: 7px;
+        width: 32px;
+        height: 32px;
+        font-size: 20px;
+    }
+
+    .web-content {
+        padding: 9px 7px;
+        gap: 7px;
+    }
+
+    .profile {
+        gap: 5px;
+    }
+
+    .profile img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .profile span {
+        font-size: 10px;
+    }
+
+    .level-area {
+        font-size: 9px;
+        padding: 4px 5px;
+    }
+
+    .box a {
+        padding: 0 8px;
+        font-size: 12px;
+        line-height: 1.45;
+        overflow-wrap: anywhere;
+    }
+
+    .rating {
+        padding: 10px 8px 7px;
+        font-size: 11px;
+    }
+
+    .price {
+        padding: 0 8px 12px;
+        font-size: 12px;
+    }
+
+    /* Tips cards */
+
+    .tips {
+        padding: 25px 12px;
+    }
+
+    .top-section {
+        padding: 0 12px;
+        gap: 12px;
+    }
+
+    .tier1,
+    .tier2,
+    .tier3,
+    .tier4,
+    .tier5,
+    .tier6,
+    .tier7 {
+        width: 100%;
+        height: auto;
+        min-height: 145px;
+        padding: 14px;
+        border-radius: 9px;
+        box-sizing: border-box;
+    }
+
+    .tier-content1,
+    .tier-content2,
+    .tier-content3,
+    .tier-content4,
+    .tier-content5,
+    .tier-content6,
+    .tier-content7 {
+        position: relative;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        margin-top: 18px;
+        gap: 8px;
+    }
+
+    .tier-content1 a,
+    .tier-content2 a,
+    .tier-content3 a,
+    .tier-content4 a,
+    .tier-content5 a,
+    .tier-content6 a,
+    .tier-content7 a {
+        font-size: 12px;
+    }
+
+    /* Explore and hire sections */
+
+    .explorer,
+    .hire {
+        margin: 30px 0 20px;
+        font-size: 23px;
+        letter-spacing: 0;
+        line-height: 1.4;
+    }
+
+    .explore-more,
+    .hire-freelancers {
+        padding: 0 12px;
+        gap: 12px;
+    }
+
+    .explore1,
+    .explore2,
+    .explore3,
+    .hire1,
+    .hire2,
+    .hire3,
+    .hire4 {
+        gap: 7px;
+    }
+
+    .explore1 a,
+    .explore2 a,
+    .explore3 a,
+    .hire1 a,
+    .hire2 a,
+    .hire3 a,
+    .hire4 a {
+        font-size: 11px;
+        padding: 8px 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+    }
+
+    /* Guide section */
+
+    .guide-section {
+        align-items: flex-start;
+        padding: 0 15px;
+    }
+
+    .guide-area {
+        font-size: 20px;
+        line-height: 1.4;
+    }
+
+    .guider-imgs {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        width: 100%;
+    }
+
+    .guide-img1,
+    .guide-img2,
+    .guide-img3 {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .guide-img1 img,
+    .guide-img2 img,
+    .guide-img3 img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+}
+
+
+/* =========================================
+   4. VERY SMALL PHONES
+========================================= */
+
+@media screen and (max-width: 350px) {
+
+    .grid-section {
+        grid-template-columns: 1fr;
+        padding: 0 18px;
+        gap: 18px;
+    }
+
+    .box video,
+    .box img {
+        aspect-ratio: 16 / 10;
+        height: auto;
+    }
+
+    .profile span {
+        font-size: 12px;
+    }
+
+    .box a {
+        font-size: 13px;
+    }
+
+    .price,
+    .rating {
+        font-size: 12px;
+    }
+
+    .explorer,
+    .hire {
+        font-size: 21px;
+    }
+
+    .explore1 a,
+    .explore2 a,
+    .explore3 a,
+    .hire1 a,
+    .hire2 a,
+    .hire3 a,
+    .hire4 a {
+        font-size: 11px;
+        padding: 7px 9px;
+    }
+
+}
+
+
+/* =========================================
+   5. ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .web-buttons > div,
+    .web-buttons img,
+    .box,
+    .box a {
+        transition: none;
+    }
+
 }
 
 /*ARCHITECCTURE & INTERIOR DESIGN IS THE SECOND PART OF MY WEBSITE INCLUDING THE BEST PART OF MY WEB*/
@@ -2485,6 +5126,113 @@ cursor: pointer;
 
 /*BOOK PUBLISHING DEVELOPMENT IS THE THIRD PART OF MY WEBSITE IT CAN INCLUDE THE BEST OF MY WEB*/
 
+
+
+/* Header */
+
+.header-section-book{
+    width:100%;
+    height:80px;
+    background:#fff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 60px;
+    box-shadow:none;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+/* Logo */
+.icon-area-book{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    cursor:pointer;
+}
+
+.icon-area-book img{
+    width:38px;
+    height:38px;
+}
+
+.icon-area-book span{
+    font-size:18px;
+    font-weight:500;
+    color:#0d0d0d;
+}
+/* Menu Area */
+
+.menu-area-book{
+    transform:translateY(12px);
+}
+
+.menu-area-book ul {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+}
+
+.menu-area-book li {
+    position: relative;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* Individual hover colors */
+.menu-area-book .pro-book:hover {
+    color: #2ab3cf;
+}
+
+.menu-area-book .explore-book:hover {
+    color: #2ab3cf;
+}
+
+.menu-area-book .en-book:hover {
+    color: #2ab3cf;
+}
+
+.menu-area-book .seller-book:hover {
+    color: #2ab3cf;
+}
+
+/* Navbar buttons */
+.sign-join-book {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sign-join-book button {
+    padding: 11px 22px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sign-area-book {
+    background: transparent;
+    color: #222;
+    border: 1px solid #d8d8d8;
+}
+
+.sign-area-book:hover {
+    border-color: #2ab3cf;
+    color: #2ab3cf;
+}
+
+.join-area-book {
+    background: linear-gradient(135deg, #2ab3cf, #2ab3cf);
+    color: white;
+    border: 1px solid transparent;
+    box-shadow: 0 4px 12px rgba(42, 179, 207, 0.2);
+}
+
+
 .book-publishing{
     width:100%;
     height: 100%;
@@ -2508,6 +5256,7 @@ cursor: pointer;
     letter-spacing:1px;
     font-style:bold;
     color:#000000;
+    cursor:pointer;
 }
 
 .take-book span{
@@ -2522,6 +5271,10 @@ cursor: pointer;
     display: flex;
     gap: 10px;
     align-items: center;
+}
+
+.another-book  a{
+    text-decoration:none;
 }
 
 .bold-heading{
@@ -2568,21 +5321,149 @@ cursor: pointer;
     text-align: center;
     padding:30px 25px;
     font-style:normal;
+    transform:translate(10px);
 }
 
-.book-grid {
+.book-grid{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items:center;
+    gap:40px;
+    transform:translate(250px);
+}
+
+#heading-for-book{
+    font-size:45px;
+    font-weight:400;
+    text-align:center;
+    padding:50px 0px;
+    color:black;
+    margin-bottom:-20px;
+}
+
+#book-img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+/* TIKTOK development styles */
+
+
+/* Header */
+
+.header-section-tiktok{
+    width:100%;
+    height:80px;
+    background:#fff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 60px;
+    box-shadow:none;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+/* Logo */
+.icon-area-tiktok{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    cursor:pointer;
+}
+
+.icon-area-tiktok img{
+    width:38px;
+    height:38px;
+}
+
+.icon-area-tiktok span{
+    font-size:18px;
+    font-weight:500;
+    color:#0d0d0d;
+}
+/* Menu Area */
+
+.menu-area-tiktok{
+    transform:translateY(12px);
+}
+
+.menu-area-tiktok ul {
     display: flex;
-    justify-content: center; /* centers the 3 divs */
-    gap: 10px;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
 }
 
-.book-card {
-    margin: 0;
-    padding: 0;
+.menu-area-tiktok li {
+    position: relative;
+    cursor: pointer;
+    transition: color 0.3s ease;
 }
 
-.book-card img {
-    display: block;
-    width: 300px;
-    height: auto;
+/* Individual hover colors */
+.menu-area-tiktok .pro-tiktok:hover {
+    color: #2ab3cf;
+}
+
+.menu-area-tiktok .explore-tiktok:hover {
+    color: #2ab3cf;
+}
+
+.menu-area-tiktok .en-tiktok:hover {
+    color: #2ab3cf;
+}
+
+.menu-area-tiktok .seller-tiktok:hover {
+    color: #2ab3cf;
+}
+
+/* Navbar buttons */
+.sign-join-tiktok {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sign-join-tiktok button {
+    padding: 11px 22px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sign-area-tiktok {
+    background: transparent;
+    color: #222;
+    border: 1px solid #d8d8d8;
+}
+
+.sign-area-tiktok:hover {
+    border-color: #2ab3cf;
+    color: #2ab3cf;
+}
+
+.join-area-tiktok {
+    background: linear-gradient(135deg, #2ab3cf, #2ab3cf);
+    color: white;
+    border: 1px solid transparent;
+    box-shadow: 0 4px 12px rgba(42, 179, 207, 0.2);
+}
+
+.input-bar-tiktok input{
+    padding:10px;
+    border-radius:50px;
+    border:2px solid black;
+    width:400px;
+}
+
+.search-area-tiktok{
+    transform:translateX(-45px);
+    cursor:pointer;
 }

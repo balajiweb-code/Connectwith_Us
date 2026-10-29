@@ -1,96 +1,6 @@
-
-//using this code to scroll the cards in the slide section when the user clicks on the lefft and right buttons
-
-const cards = document.querySelector("#slider-container .cards");
-
-document.getElementById("right-btn").addEventListener("click", () => {
-    cards.scrollBy({
-        left: 300,
-        behavior: "smooth"
-    });
-});
-
-document.getElementById("left-btn").addEventListener("click", () => {
-    cards.scrollBy({
-        left: -300,
-        behavior: "smooth"
-    });
-});
-//using this code to search the text in the google search section and display the results in the answer box
-const searchInput = document.getElementById("input-section");
-const searchBtn = document.getElementById("search-btn");
-const answerBox = document.getElementById("google-answer");
-
-async function searchGoogle() {
-    const query = searchInput.value.trim();
-
-    if (query === "") {
-        answerBox.textContent = "Please enter something to search.";
-        return;
-    }
-
-    answerBox.textContent = "Searching...";
-
-    try {
-        // Send the search text to your backend
-        const response = await fetch(
-            `/api/search?q=${encodeURIComponent(query)}`
-        );
-
-        if (!response.ok) {
-            throw new Error("Search request failed");
-        }
-
-        const data = await response.json();
-
-        // Display the returned search results
-        answerBox.replaceChildren();
-
-        if (!data.items || data.items.length === 0) {
-            answerBox.textContent = "No results found.";
-            return;
-        }
-
-        data.items.forEach(item => {
-            const result = document.createElement("div");
-            result.className = "search-result";
-
-            const title = document.createElement("h3");
-            const link = document.createElement("a");
-            link.href = item.link;
-            link.textContent = item.title;
-            link.target = "_blank";
-            link.rel = "noopener noreferrer";
-
-            title.appendChild(link);
-
-            const description = document.createElement("p");
-            description.textContent = item.snippet || "";
-
-            result.append(title, description);
-            answerBox.appendChild(result);
-        });
-
-    } catch (error) {
-        console.error("Search error:", error);
-        answerBox.textContent =
-            "Unable to load search results. Please try again.";
-    }
-}
-
-// Search when the icon is clicked
-searchBtn.addEventListener("click", searchGoogle);
-
-// Search when Enter is pressed
-searchInput.addEventListener("keydown", event => {
-    if (event.key === "Enter") {
-        searchGoogle();
-    }
-});
-
+ // Using this code to open the login and signup form
 
 const signInBtn = document.getElementById("signInBtn");
-const joinBtn = document.getElementById("joinBtn");
 
 const authOverlay = document.getElementById("authOverlay");
 const closeAuth = document.getElementById("closeAuth");
@@ -110,6 +20,9 @@ const togglePassword = document.getElementById("togglePassword");
 
 const authForm = document.getElementById("authForm");
 const authMessage = document.getElementById("authMessage");
+
+// Select all Join buttons using the shared class
+const joinButtons = document.querySelectorAll(".join-area");
 
 let isSignup = false;
 
@@ -133,7 +46,9 @@ function updateAuthForm() {
         ? "Join ConnectWith and discover opportunities"
         : "Sign in to continue to ConnectWith";
 
-    authSubmit.textContent = isSignup ? "Create Account" : "Sign in";
+    authSubmit.textContent = isSignup
+        ? "Create Account"
+        : "Sign in";
 
     nameGroup.style.display = isSignup ? "block" : "none";
     authName.required = isSignup;
@@ -146,16 +61,29 @@ function updateAuthForm() {
         ? "Already have an account?"
         : "Don't have an account?";
 
-    switchAuth.textContent = isSignup ? "Sign in" : "Join now";
+    switchAuth.textContent = isSignup
+        ? "Sign in"
+        : "Join now";
 
     authMessage.textContent = "";
 }
 
-// Navbar buttons
-signInBtn.addEventListener("click", () => openAuth(false));
-joinBtn.addEventListener("click", () => openAuth(true));
+// Sign In button
+if (signInBtn) {
+    signInBtn.addEventListener("click", () => {
+        openAuth(false);
+    });
+}
 
-// Switch between forms
+// All Join buttons open the same signup form
+joinButtons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+        event.preventDefault();
+        openAuth(true);
+    });
+});
+
+// Switch between login and signup
 switchAuth.addEventListener("click", () => {
     authForm.reset();
     openAuth(!isSignup);
@@ -169,7 +97,7 @@ function closeAuthForm() {
 
 closeAuth.addEventListener("click", closeAuthForm);
 
-// Close when clicking outside the card
+// Close when clicking outside the form
 authOverlay.addEventListener("click", (event) => {
     if (event.target === authOverlay) {
         closeAuthForm();
@@ -201,3 +129,81 @@ authForm.addEventListener("submit", (event) => {
 });
 
 
+
+const searchInput = document.getElementById("input-section");
+const searchBtn = document.getElementById("search-btn");
+
+function searchService() {
+    const searchText = searchInput.value.toLowerCase().trim();
+
+    if (searchText === "") {
+        alert("Please enter a service name!");
+        return;
+    }
+
+    if (
+        searchText.includes("web development") ||
+        searchText.includes("website development") ||
+        searchText.includes("web design") ||
+        searchText.includes("website") ||
+        searchText.includes("web")
+    ) {
+        window.location.href = "development.html";
+    } 
+    else if (searchText.includes("book")) {
+        window.location.href = "book.html";
+    } 
+    else if (
+        searchText.includes("editing") ||
+        searchText.includes("video") ||
+        searchText.includes("video editing")
+    ) {
+        window.location.href = "editing.html";
+    } 
+    else if (
+        searchText.includes("interior") ||
+        searchText.includes("interior design")
+    ) {
+        window.location.href = "interior.html";
+    } 
+    else if (
+        searchText.includes("tiktok") ||
+        searchText.includes("tik tok")
+    ) {
+        window.location.href = "tiktok.html";
+    } 
+    else {
+        alert("No matching service found!");
+    }
+}
+
+// Click the search icon
+searchBtn.addEventListener("click", searchService);
+
+// Press Enter in the search box
+searchInput.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        searchService();
+    }
+});
+
+//grid container section has some css color design using js code
+
+  document.querySelectorAll(".grid-container > div").forEach(card => {
+    card.addEventListener("pointermove", e => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty("--x", (e.clientX - r.left) + "px");
+      card.style.setProperty("--y", (e.clientY - r.top) + "px");
+    });
+  });
+
+  //js code for the popular services section
+  const cards = document.querySelector(".cards");
+  const step = 220; // pixels to scroll per click
+
+  document.getElementById("left-btn").addEventListener("click", () => {
+    cards.scrollBy({ left: -step, behavior: "smooth" });
+  });
+  document.getElementById("right-btn").addEventListener("click", () => {
+    cards.scrollBy({ left: step, behavior: "smooth" });
+  });
