@@ -1,0 +1,399 @@
+
+/* ================================ Header for book.html ================================ */
+ 
+.header-section-book{
+    width:100%;
+    height:80px;
+    background:#fff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 60px;
+    box-shadow:none;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+/* Logo */
+.icon-area-book{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    cursor:pointer;
+}
+
+.icon-area-book img{
+    width:38px;
+    height:38px;
+}
+
+.icon-area-book span{
+    font-size:18px;
+    font-weight:500;
+    color:#0d0d0d;
+}
+/* Menu Area */
+
+.menu-area-book{
+    transform:translateY(12px);
+}
+
+.menu-area-book ul {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+}
+
+.menu-area-book li {
+    position: relative;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* Individual hover colors */
+.menu-area-book .pro-book:hover {
+    color: #2ab3cf;
+}
+
+.menu-area-book .explore-book:hover {
+    color: #2ab3cf;
+}
+
+.menu-area-book .en-book:hover {
+    color: #2ab3cf;
+}
+
+.menu-area-book .seller-book:hover {
+    color: #2ab3cf;
+}
+
+/* Navbar buttons */
+.sign-join-book {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sign-join-book button {
+    padding: 11px 22px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sign-area-book {
+    background: transparent;
+    color: #222;
+    border: 1px solid #d8d8d8;
+}
+
+.sign-area-book:hover {
+    border-color: #2ab3cf;
+    color: #2ab3cf;
+}
+
+.join-area-book {
+    background: linear-gradient(135deg, #2ab3cf, #2ab3cf);
+    color: white;
+    border: 1px solid transparent;
+    box-shadow: 0 4px 12px rgba(42, 179, 207, 0.2);
+}
+
+/* ================================ Header for development.html ================================ */
+
+.header-section-dev{
+    width:100%;
+    height:80px;
+    background:#fff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 60px;
+    box-shadow:none;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+/* Logo */
+.icon-area-dev{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    cursor:pointer;
+}
+
+.icon-area-dev img{
+    width:38px;
+    height:38px;
+}
+
+.icon-area-dev span{
+    font-size:18px;
+    font-weight:500;
+    color:#0d0d0d;
+}
+/* Menu Area */
+
+.menu-area-dev{
+    transform:translateY(12px);
+}
+
+.menu-area-dev ul {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+}
+
+.menu-area-dev li {
+    position: relative;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* Individual hover colors */
+.menu-area-dev .pro-dev:hover {
+    color: #2ab3cf;
+}
+
+.menu-area-dev .explore-dev:hover {
+    color: #2ab3cf;
+}
+
+.menu-area-dev .en-dev:hover {
+    color: #2ab3cf;
+}
+
+.menu-area-dev .seller-dev:hover {
+    color: #2ab3cf;
+}
+
+.input-bar-dev input{
+    border:2px solid black;
+    padding:12px;
+    border-radius:45px;
+    width:380px;
+}
+
+.search-area-dev{
+    transform:translateX(-40px);
+}
+
+/* Navbar buttons */
+.sign-join-dev {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sign-join-dev button {
+    padding: 11px 22px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sign-area-dev {
+    background: transparent;
+    color: #222;
+    border: 1px solid #d8d8d8;
+}
+
+.sign-area-dev:hover {
+    border-color: #2ab3cf;
+    color: #2ab3cf;
+}
+
+.join-area-dev {
+    background: linear-gradient(135deg, #2ab3cf, #2ab3cf);
+    color: white;
+    border: 1px solid transparent;
+    box-shadow: 0 4px 12px rgba(42, 179, 207, 0.2);
+}
+
+.input-bar{
+display: flex;
+align-items: center;
+}
+
+.input-bar input{
+    width:400px;
+    height: 50px;
+    border-radius:25px;
+    border:2px solid black;
+    padding:22px;
+    font-weight: 200;
+}
+
+.input-bar span{
+    position: relative;
+    right: 50px;
+    top: 4px;
+    cursor: pointer;
+    padding:15px;
+}
+
+/* ================================ Header for Interior.html ================================ */
+
+.header-section-interior{
+    width:100%;
+    height:80px;
+    background:#fff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 60px;
+    box-shadow:none;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+/* Logo */
+.icon-area-interior{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    cursor:pointer;
+}
+
+.icon-area-interior img{
+    width:38px;
+    height:38px;
+}
+
+.icon-area-interior span{
+    font-size:18px;
+    font-weight:500;
+    color:#0d0d0d;
+}
+
+.input-bar-interior input{
+    border:2px solid black;
+    padding:15px;
+    border-radius:45px;
+    width:380px;
+}
+
+.search-area-interior{
+    transform: translate(-45px,6px);
+}
+/* Menu Area */
+
+.menu-area-interior ul {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+}
+
+.menu-area-interior li {
+    position: relative;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* Tooltip */
+.menu-area-interior li::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: calc(100% + 14px);
+    left: 50%;
+
+    transform: translate(-50%, -6px);
+    background: #f0f1f3;
+    color: #000000;
+
+    padding: 9px 13px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+    transition: opacity 0.25s ease,
+                transform 0.25s ease,
+                visibility 0.25s ease;
+    z-index: 1000;
+}
+
+/* Small tooltip arrow */
+.menu-area-interior li::before {
+    content: "";
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 50%;
+
+    transform: translateX(-50%);
+    border-width: 0 6px 7px;
+    border-style: solid;
+    border-color: transparent transparent #202124;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease;
+    z-index: 1000;
+}
+
+
+/* Individual hover colors */
+.menu-area-interior .pro:hover {
+    color: #2ab3cf;
+}
+
+.menu-area-interior .explore:hover {
+    color: #2ab3cf;
+}
+
+.menu-area-interior .en:hover {
+    color: #2ab3cf;
+}
+
+.menu-area-interior .seller:hover {
+    color: #2ab3cf;
+}
+
+/* Navbar buttons */
+.sign-join-interior {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sign-join-interior button {
+    padding: 11px 22px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sign-area-interior {
+    background: transparent;
+    color: #222;
+    border: 1px solid #d8d8d8;
+}
+
+.sign-area-interior:hover {
+    border-color: #2ab3cf;
+    color: #2ab3cf;
+}
+
+.join-area-interior {
+    background: linear-gradient(135deg, #2ab3cf, #2ab3cf);
+    color: white;
+    border: 1px solid transparent;
+    box-shadow: 0 4px 12px rgba(42, 179, 207, 0.2);
+}

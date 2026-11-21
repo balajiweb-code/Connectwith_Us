@@ -1,0 +1,17 @@
+<svg width="48" height="46" viewBox="0 0 48 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.10772 12.0332H37.9695V43.2518H5.10772C2.8074 43.2518 1 41.3623 1 39.1441" fill="white"/>
+<path d="M5.10772 12.0332H37.9695V43.2518H5.10772C2.8074 43.2518 1 41.3623 1 39.1441" stroke="#404145" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10.8594 26.8248V18.6094H19.0748" stroke="#404145" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1 39.1439C1 37.0079 2.64309 35.0362 5.10772 35.0362V7.10376C2.64309 7.10376 1 9.07546 1 11.2115V39.1439Z" fill="#A6EACA"/>
+<path d="M1 39.1439C1 37.0079 2.64309 35.0362 5.10772 35.0362V7.10376C2.64309 7.10376 1 9.07546 1 11.2115V39.1439Z" stroke="#404145" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.4961 36.6833V35.7795L46.0972 3H47.0009V36.6833H12.4961ZM42.0709 16.1446H41.2494L26.4616 30.9324V31.7539H42.0709V16.1446Z" fill="#A6EACA"/>
+<path d="M12.4961 35.7795V36.6833H47.0009V3H46.0972L12.4961 35.7795Z" stroke="#404145" stroke-width="1.5" stroke-miterlimit="10"/>
+<path d="M42.8906 34.1367V36.6013" stroke="#404145" stroke-width="1.5" stroke-miterlimit="10"/>
+<path d="M38.7852 34.1367V36.6013" stroke="#404145" stroke-width="1.5" stroke-miterlimit="10"/>
+<path d="M34.6758 34.1365V36.6011" stroke="#404145" stroke-width="1.5" stroke-miterlimit="10"/>
+<path d="M30.5703 34.1365V36.6011" stroke="#404145" stroke-width="1.5" stroke-miterlimit="10"/>
+<path d="M26.4609 34.1365V36.6011" stroke="#404145" stroke-width="1.5" stroke-miterlimit="10"/>
+<path d="M22.3516 34.1367V36.6013" stroke="#404145" stroke-width="1.5" stroke-miterlimit="10"/>
+<path d="M18.2461 34.1367V36.6013" stroke="#404145" stroke-width="1.5" stroke-miterlimit="10"/>
+<path d="M41.2487 15.241H42.0703V30.8503H26.4609V30.0287L41.2487 15.241Z" stroke="#404145" stroke-width="1.5" stroke-miterlimit="10"/>
+</svg>
